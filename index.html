@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planejamento de Tráfego — Human Global Aesthetics Program 2026</title>
+<title>Human Global Aesthetics Program — Planejamento de Tráfego 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* ── PLANEJAMENTO ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#EAEAEA;--white:#FFFFFF;--navy:#002055;--navy2:#003580;
@@ -181,10 +182,199 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
   .cover{margin:0 0 40px}
   .channel,.card,.cb,.ccrd,.checklist,.mbox,.adt,.section{break-inside:avoid}
 }
+
+/* ── LAYOUT COM SIDEBAR DE COMENTÁRIOS ── */
+html, body { margin:0; padding:0; }
+body { display:flex; flex-direction:column; min-height:100vh; background:var(--bg); }
+
+.topbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:var(--navy); display:flex; align-items:center;
+  justify-content:space-between; padding:0 28px; height:52px;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+.topbar-left { display:flex; align-items:center; gap:14px; }
+.topbar-logo { font-family:var(--display); font-size:13px; font-weight:900; color:#fff; letter-spacing:.08em; text-transform:uppercase; }
+.topbar-sub { font-size:12px; font-weight:600; color:rgba(255,255,255,.45); padding-left:14px; border-left:1px solid rgba(255,255,255,.15); }
+.topbar-right { display:flex; align-items:center; gap:8px; }
+.tbtn { display:inline-flex; align-items:center; gap:6px; font-family:var(--sans); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:6px 14px; border-radius:6px; border:none; cursor:pointer; transition:all .15s; white-space:nowrap; }
+.tbtn-ghost { background:rgba(255,255,255,.1); color:#fff; }
+.tbtn-ghost:hover { background:rgba(255,255,255,.18); }
+.tbtn-success { background:#16A34A; color:#fff; }
+.tbtn-success:hover { background:#15803D; }
+.tbtn-primary { background:var(--blue); color:#fff; }
+.tbtn-primary:hover { background:var(--blue2); }
+.tbtn-cancel { background:#eee; color:var(--navy); }
+
+.app-layout { display:flex; padding-top:52px; min-height:calc(100vh - 52px); }
+
+/* ── SIDEBAR COMENTÁRIOS ── */
+:root {
+  --ana-bg:#EBF2FF; --ana-b:#1565C0; --ana-t:#002055;
+  --vini-bg:#F0FDF4; --vini-b:#16A34A; --vini-t:#14532D;
+  --felipe-bg:#FFF7ED; --felipe-b:#EA580C; --felipe-t:#7C2D12;
+}
+.c-sidebar {
+  width:280px; flex-shrink:0; background:#fff;
+  border-right:1px solid var(--div);
+  position:sticky; top:52px; height:calc(100vh - 52px);
+  overflow-y:auto; display:flex; flex-direction:column;
+  transition:transform .25s;
+}
+.c-sidebar.collapsed { transform:translateX(-280px); margin-right:-280px; }
+.csb-head { padding:14px 16px 12px; border-bottom:1px solid var(--div); background:#fff; position:sticky; top:0; z-index:10; }
+.csb-title { font-family:var(--display); font-size:14px; font-weight:900; color:var(--navy); margin-bottom:9px; }
+.author-toggle { display:flex; gap:4px; flex-wrap:wrap; }
+.abtn { flex:1; min-width:72px; padding:4px 0; border-radius:7px; border:1.5px solid transparent; font-size:10px; font-weight:800; cursor:pointer; text-align:center; transition:all .15s; line-height:1.4; }
+.abtn.ana { background:var(--ana-bg); color:var(--ana-t); border-color:var(--ana-b); }
+.abtn.vini { background:var(--vini-bg); color:var(--vini-t); border-color:var(--vini-b); }
+.abtn.felipe { background:var(--felipe-bg); color:var(--felipe-t); border-color:var(--felipe-b); }
+.abtn:not(.active) { opacity:.35; border-color:transparent; }
+.csb-list { flex:1; padding:8px 0; }
+.csb-empty { padding:24px 16px; font-size:13px; font-weight:600; color:var(--navy); opacity:.4; text-align:center; line-height:1.7; }
+.ci { padding:10px 14px; border-bottom:1px solid var(--div); cursor:pointer; transition:background .1s; position:relative; }
+.ci:hover { background:#f6f9ff; }
+.ci-head { display:flex; align-items:center; gap:7px; margin-bottom:4px; }
+.cav { width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:900; flex-shrink:0; }
+.cav-ana { background:var(--ana-bg); color:var(--ana-t); border:1.5px solid var(--ana-b); }
+.cav-vini { background:var(--vini-bg); color:var(--vini-t); border:1.5px solid var(--vini-b); }
+.cav-felipe { background:var(--felipe-bg); color:var(--felipe-t); border:1.5px solid var(--felipe-b); }
+.ci-author { font-size:11px; font-weight:800; color:var(--navy); }
+.ci-date { font-size:10px; font-weight:600; color:var(--navy); opacity:.4; margin-left:4px; }
+.ci-sec { font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); background:var(--badge-bg); padding:2px 5px; border-radius:4px; margin-bottom:4px; display:inline-block; }
+.ci-prev { font-size:12px; font-weight:600; color:var(--navy); opacity:.6; line-height:1.4; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.ci-del { position:absolute; top:8px; right:8px; width:18px; height:18px; border-radius:50%; background:none; border:none; cursor:pointer; font-size:10px; color:rgba(0,0,0,.2); display:flex; align-items:center; justify-content:center; opacity:0; transition:all .15s; }
+.ci:hover .ci-del { opacity:1; }
+.ci-del:hover { background:#fee2e2; color:#dc2626; }
+.csb-foot { padding:10px 14px; border-top:1px solid var(--div); background:#fff; }
+.stats { display:flex; gap:5px; }
+.sp { flex:1; background:var(--bg); border-radius:7px; padding:5px; text-align:center; }
+.sp .n { font-family:var(--display); font-size:15px; font-weight:900; color:var(--navy); }
+.sp .l { font-size:9px; font-weight:700; color:var(--navy); opacity:.5; margin-top:1px; }
+.sp.sp-ana .n { color:var(--blue); }
+.sp.sp-vini .n { color:#16A34A; }
+.sp.sp-felipe .n { color:#EA580C; }
+
+/* ── CONTEÚDO PRINCIPAL ── */
+.doc-content { flex:1; min-width:0; }
+
+/* Ajuste no .page para funcionar dentro do layout */
+.doc-content .page { max-width:920px; padding:36px 40px 80px; margin:0 auto; }
+
+/* Sections recebem highlight quando têm comentários */
+.section.has-c { border-left:3px solid var(--blue); border-radius:0 14px 14px 0; }
+
+/* Botão + flutuante em cada seção */
+.add-c-btn {
+  display:block; margin-top:12px;
+  background:none; border:1.5px dashed rgba(21,101,192,.35);
+  border-radius:8px; width:100%; padding:8px;
+  color:var(--blue); font-size:12px; font-weight:800;
+  cursor:pointer; opacity:0; transition:opacity .15s;
+  letter-spacing:.06em; text-transform:uppercase;
+}
+.section:hover .add-c-btn { opacity:1; }
+.add-c-btn:hover { background:var(--badge-bg); border-style:solid; }
+
+/* Balões de comentário inline */
+.c-list-inline { display:flex; flex-direction:column; gap:7px; margin-top:10px; }
+.balloon { border-radius:9px; padding:9px 12px; position:relative; font-size:12px; font-weight:600; line-height:1.5; }
+.balloon.ana { background:var(--ana-bg); border-left:3px solid var(--ana-b); color:var(--ana-t); }
+.balloon.vini { background:var(--vini-bg); border-left:3px solid var(--vini-b); color:var(--vini-t); }
+.balloon.felipe { background:var(--felipe-bg); border-left:3px solid var(--felipe-b); color:var(--felipe-t); }
+.b-head { display:flex; align-items:center; gap:6px; margin-bottom:4px; }
+.b-av { width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:900; flex-shrink:0; }
+.b-author { font-size:11px; font-weight:800; }
+.b-date { font-size:10px; opacity:.5; margin-left:4px; }
+.b-text { line-height:1.55; }
+.b-del { position:absolute; top:6px; right:8px; background:none; border:none; cursor:pointer; font-size:11px; opacity:.2; transition:opacity .15s; padding:2px 4px; border-radius:4px; }
+.b-del:hover { opacity:.75; background:rgba(0,0,0,.07); }
+
+/* ── MODAL ── */
+.mo { position:fixed; inset:0; background:rgba(0,20,60,.45); z-index:2000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .2s; }
+.mo.open { opacity:1; pointer-events:all; }
+.modal { background:#fff; border-radius:16px; padding:26px 28px; width:460px; max-width:92vw; box-shadow:0 8px 40px rgba(0,20,60,.25); transform:translateY(10px); transition:transform .2s; }
+.mo.open .modal { transform:translateY(0); }
+.m-title { font-family:var(--display); font-size:17px; font-weight:900; color:var(--navy); margin-bottom:16px; }
+.m-label { font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--navy); opacity:.55; margin-bottom:7px; display:block; }
+.m-authors { display:flex; gap:7px; margin-bottom:16px; }
+.mao { flex:1; padding:9px 0; border-radius:9px; border:2px solid transparent; font-size:11px; font-weight:800; cursor:pointer; text-align:center; transition:all .15s; }
+.mao.ana { background:var(--ana-bg); color:var(--ana-t); }
+.mao.ana.sel { border-color:var(--ana-b); }
+.mao.vini { background:var(--vini-bg); color:var(--vini-t); }
+.mao.vini.sel { border-color:var(--vini-b); }
+.mao.felipe { background:var(--felipe-bg); color:var(--felipe-t); }
+.mao.felipe.sel { border-color:var(--felipe-b); }
+.mao:not(.sel) { opacity:.38; }
+.m-sec-info { background:var(--badge-bg); border-radius:8px; padding:7px 11px; font-size:12px; font-weight:700; color:var(--blue); margin-bottom:14px; }
+textarea.m-input { width:100%; border:1.5px solid var(--div); border-radius:9px; padding:10px 12px; font-family:var(--sans); font-size:13px; font-weight:600; color:var(--navy); resize:vertical; min-height:90px; outline:none; transition:border-color .15s; background:var(--bg); }
+textarea.m-input:focus { border-color:var(--blue); background:#fff; }
+.m-foot { display:flex; gap:8px; justify-content:flex-end; margin-top:14px; }
+
+/* Export */
+.exp-area { background:#1e1e2e; border-radius:9px; padding:14px; font-family:'Courier New',monospace; font-size:12px; color:#cdd6f4; max-height:300px; overflow-y:auto; white-space:pre-wrap; line-height:1.6; margin:10px 0; }
+.copy-ok { font-size:12px; font-weight:700; color:#16A34A; opacity:0; transition:opacity .3s; text-align:center; margin-top:4px; }
+.copy-ok.show { opacity:1; }
+
+/* Toggle sidebar btn */
+.toggle-sidebar-btn {
+  position:fixed; left:0; top:50%; transform:translateY(-50%);
+  z-index:900; background:var(--navy); color:#fff;
+  border:none; cursor:pointer; border-radius:0 8px 8px 0;
+  padding:10px 6px; font-size:12px; font-weight:900;
+  box-shadow:2px 0 8px rgba(0,0,0,.15); transition:left .25s;
+  writing-mode:vertical-rl;
+  display:none; /* escondido — sidebar visível por default */
+}
+
+/* Toast */
+.toast { position:fixed; bottom:22px; right:22px; z-index:3000; background:var(--navy); color:#fff; font-size:12px; font-weight:700; padding:9px 16px; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,.2); transform:translateY(16px); opacity:0; transition:all .22s; pointer-events:none; }
+.toast.show { transform:translateY(0); opacity:1; }
 </style>
 </head>
 <body>
-<div class="page">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">Foco Marketing</div>
+    <div class="topbar-sub">Human Global Aesthetics Program · Tráfego 2026</div>
+  </div>
+  <div class="topbar-right">
+    <button class="tbtn tbtn-ghost" onclick="toggleSidebar()">💬 <span id="sidebar-toggle-lbl">Ocultar comentários</span></button>
+    <button class="tbtn tbtn-success" onclick="openExport()">↓ Exportar comentários</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app-layout">
+
+  <!-- SIDEBAR COMENTÁRIOS -->
+  <div class="c-sidebar" id="c-sidebar">
+    <div class="csb-head">
+      <div class="csb-title">Comentários</div>
+      <div class="author-toggle">
+        <div class="abtn ana active" onclick="filterAuthor('ana')">Ana Moutinho</div>
+        <div class="abtn vini active" onclick="filterAuthor('vini')">Vinícius</div>
+        <div class="abtn felipe active" onclick="filterAuthor('felipe')">Felipe Meireles</div>
+      </div>
+    </div>
+    <div class="csb-list" id="csb-list">
+      <div class="csb-empty" id="csb-empty">Nenhum comentário ainda.<br>Clique em <strong>+ Adicionar comentário</strong> em qualquer seção.</div>
+    </div>
+    <div class="csb-foot">
+      <div class="stats">
+        <div class="sp sp-ana"><div class="n" id="ct-ana">0</div><div class="l">Ana</div></div>
+        <div class="sp sp-vini"><div class="n" id="ct-vini">0</div><div class="l">Vinícius</div></div>
+        <div class="sp sp-felipe"><div class="n" id="ct-felipe">0</div><div class="l">Felipe</div></div>
+        <div class="sp"><div class="n" id="ct-total">0</div><div class="l">Total</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO COMPLETO -->
+  <div class="doc-content">
+    <div class="page">
 
 <!-- COVER -->
 <div class="cover">
@@ -206,7 +396,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
 </div>
 
 <!-- 01. GEO -->
-<div class="section">
+<div class="section" id="sec-geo" data-sec-label="01 · Decisão estratégica" data-injected="1">
   <div class="sh"><span class="snum">01</span><h2 class="stitle">Decisão estratégica — onde focar o tráfego</h2><div class="sdiv"></div></div>
 
   <div class="geo">
@@ -226,10 +416,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
     </div>
   </div>
   <div class="note"><strong>Conta Meta do Brasil nos EUA:</strong> a mesma conta pode ser usada sem restrições técnicas. O targeting geográfico é configurado dentro de cada Ad Set — o país do pagamento não interfere na entrega. Adaptações detalhadas na seção 06.</div>
+
+  <div class="c-list-inline" id="cli-sec-geo"></div>
+  <button class="add-c-btn" onclick="openModal('sec-geo','01 · Decisão estratégica')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 02. MAILING -->
-<div class="section">
+<div class="section" id="sec-mailing" data-sec-label="02 · Base de mailing" data-injected="1">
   <div class="sh"><span class="snum">02</span><h2 class="stitle">Base de mailing — análise e uso estratégico</h2><div class="sdiv"></div></div>
 
   <div class="mbox">
@@ -287,10 +480,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
       <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.7;margin-top:3px">DND=Sim — não contactar</div>
     </div>
   </div>
+
+  <div class="c-list-inline" id="cli-sec-mailing"></div>
+  <button class="add-c-btn" onclick="openModal('sec-mailing','02 · Base de mailing')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 03. CANAIS -->
-<div class="section">
+<div class="section" id="sec-canais" data-sec-label="03 · Estrutura de canais" data-injected="1">
   <div class="sh"><span class="snum">03</span><h2 class="stitle">Estrutura de canais</h2><div class="sdiv"></div></div>
 
   <div class="channel">
@@ -406,10 +602,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
     </div>
     <div class="note"><strong>Prioridade:</strong> influencers com audiência de outros médicos, não de pacientes. Perfis que falam sobre carreira e negócios médicos têm impacto muito maior neste nicho do que perfis clínicos puros.</div>
   </div>
+
+  <div class="c-list-inline" id="cli-sec-canais"></div>
+  <button class="add-c-btn" onclick="openModal('sec-canais','03 · Estrutura de canais')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 04. ORÇAMENTO -->
-<div class="section">
+<div class="section" id="sec-orcamento" data-sec-label="04 · Orçamento" data-injected="1">
   <div class="sh"><span class="snum">04</span><h2 class="stitle">Distribuição de orçamento</h2><div class="sdiv"></div></div>
 
   <div style="background:var(--white);border-radius:14px;padding:24px 28px;box-shadow:var(--sh);margin-bottom:14px">
@@ -427,10 +626,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
   </div>
 
   <div class="note"><strong>Lógica de lotes:</strong> concentre 50% do Meta Ads nos primeiros 10 dias (Lote 01). O look-alike da base mailing deve ser ativado na Fase 1 — é o público mais quente disponível para os EUA. Use os primeiros inscritos como prova social nos criativos do Lote 02 e 03.</div>
+
+  <div class="c-list-inline" id="cli-sec-orcamento"></div>
+  <button class="add-c-btn" onclick="openModal('sec-orcamento','04 · Orçamento')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 05. META ADS -->
-<div class="section">
+<div class="section" id="sec-meta" data-sec-label="05 · Campanhas Meta Ads" data-injected="1">
   <div class="sh"><span class="snum">05</span><h2 class="stitle">Estrutura de campanhas no Meta Ads</h2><div class="sdiv"></div></div>
 
   <table class="adt">
@@ -466,10 +668,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
       <tr><td>Urgência Lote 02/03</td><td>Base quente + Custom Audience mailing + engajamento. Criativos com preço do lote vigente e countdown de vagas</td><td><span class="badge b-blue">Ambos</span></td></tr>
     </tbody>
   </table>
+
+  <div class="c-list-inline" id="cli-sec-meta"></div>
+  <button class="add-c-btn" onclick="openModal('sec-meta','05 · Campanhas Meta Ads')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 06. ADAPTAÇÕES -->
-<div class="section">
+<div class="section" id="sec-adaptacoes" data-sec-label="06 · Adaptações conta BR nos EUA" data-injected="1">
   <div class="sh"><span class="snum">06</span><h2 class="stitle">Conta Meta Brasil — adaptações para rodar nos EUA</h2><div class="sdiv"></div></div>
 
   <ul class="checklist">
@@ -484,10 +689,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
     <li><div class="ico ico-neu">→</div><div><span class="cs">Idioma dos anúncios</span>Manter português — o público-alvo são médicos brasileiros. Para ampliar alcance a latino-americanos de outras origens residentes nas cidades do tour, criar versão em espanhol como teste secundário.</div></li>
     <li><div class="ico ico-neu">→</div><div><span class="cs">Quando abrir conta americana</span>Apenas se o volume futuro for acima de US$ 10k/mês recorrentes, se a Human Clinic tiver LLC americana, ou se quiser pagar em dólar diretamente. Para esse evento pontual, a conta brasileira atende completamente.</div></li>
   </ul>
+
+  <div class="c-list-inline" id="cli-sec-adaptacoes"></div>
+  <button class="add-c-btn" onclick="openModal('sec-adaptacoes','06 · Adaptações conta BR nos EUA')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 07. CRIATIVOS -->
-<div class="section">
+<div class="section" id="sec-criativos" data-sec-label="07 · Guia de criativos" data-injected="1">
   <div class="sh"><span class="snum">07</span><h2 class="stitle">Guia de criativos por fase</h2><div class="sdiv"></div></div>
 
   <div class="cb">
@@ -549,10 +757,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
       <div class="cbc"><span class="badge b-ok">WhatsApp</span></div>
     </div>
   </div>
+
+  <div class="c-list-inline" id="cli-sec-criativos"></div>
+  <button class="add-c-btn" onclick="openModal('sec-criativos','07 · Guia de criativos')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 08. CALENDÁRIO -->
-<div class="section">
+<div class="section" id="sec-calendario" data-sec-label="08 · Calendário" data-injected="1">
   <div class="sh"><span class="snum">08</span><h2 class="stitle">Calendário de ativação</h2><div class="sdiv"></div></div>
 
   <div class="timeline">
@@ -593,10 +804,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
       <div class="tl-body">Compilar depoimentos, fotos e números (participantes por cidade, diversidade de especialidades). Criar conteúdo de resultado para redes sociais. Iniciar nurturing da base de leads gerados para próximas edições. Relatório de ROAS por canal e cidade. Salvar look-alike da base mailing para próximas campanhas — já validado pelo evento.</div>
     </div>
   </div>
+
+  <div class="c-list-inline" id="cli-sec-calendario"></div>
+  <button class="add-c-btn" onclick="openModal('sec-calendario','08 · Calendário')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 09. POR CIDADE -->
-<div class="section">
+<div class="section" id="sec-cidades" data-sec-label="09 · Budget por cidade" data-injected="1">
   <div class="sh"><span class="snum">09</span><h2 class="stitle">Budget por cidade — Meta Ads EUA</h2><div class="sdiv"></div></div>
 
   <div class="cgrid">
@@ -636,10 +850,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
 
   <div class="note" style="margin-top:14px"><strong>Houston e LA:</strong> a base mailing tem cobertura quase nula nessas cidades. O look-alike e os interesses orgânicos do Meta são os únicos caminhos para essas praças. Confirmar se a Human Clinic tem alguma lista local de parceiros antes do evento.</div>
   <div class="alert" style="margin-top:10px"><strong>Brasil também recebe segmentação separada:</strong> médicos com renda alta e histórico de viagens internacionais que possam comparecer viajando do Brasil. Budget adicional de R$ 1.400 do Meta alocado para esse público, com criativo específico "Venha para os EUA com a gente".</div>
+
+  <div class="c-list-inline" id="cli-sec-cidades"></div>
+  <button class="add-c-btn" onclick="openModal('sec-cidades','09 · Budget por cidade')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 10. FATURAMENTO -->
-<div class="section">
+<div class="section" id="sec-faturamento" data-sec-label="10 · Estimativa de faturamento" data-injected="1">
   <div class="sh"><span class="snum">10</span><h2 class="stitle">Estimativa de faturamento</h2><div class="sdiv"></div></div>
 
   <p style="font-size:13px;font-weight:600;color:var(--navy2);margin-bottom:20px;line-height:1.6">Projeção baseada nos preços dos 3 planos (Platinum, Diamond, Black), na distribuição esperada de vendas por lote e no mix estimado de adesão por plano. Câmbio de referência: R$ 5,80/US$.</p>
@@ -916,10 +1133,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
 
   </div>
 
+
+  <div class="c-list-inline" id="cli-sec-faturamento"></div>
+  <button class="add-c-btn" onclick="openModal('sec-faturamento','10 · Estimativa de faturamento')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- 11. KPIs -->
-<div class="section">
+<div class="section" id="sec-kpis" data-sec-label="11 · KPIs" data-injected="1">
   <div class="sh"><span class="snum">11</span><h2 class="stitle">KPIs e metas por canal</h2><div class="sdiv"></div></div>
 
   <div class="g2">
@@ -961,6 +1181,9 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
       </table>
     </div>
   </div>
+
+  <div class="c-list-inline" id="cli-sec-kpis"></div>
+  <button class="add-c-btn" onclick="openModal('sec-kpis','11 · KPIs')" title="Adicionar comentário">+</button>
 </div>
 
 <!-- FOOTER -->
@@ -970,5 +1193,236 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14
 </div>
 
 </div>
+  </div>
+
+</div>
+
+<!-- MODAL ADICIONAR COMENTÁRIO -->
+<div class="mo" id="mo-add">
+  <div class="modal">
+    <div class="m-title">Novo comentário</div>
+    <span class="m-label">Autor</span>
+    <div class="m-authors">
+      <div class="mao ana sel" id="opt-ana" onclick="selAuthor('ana')">Ana Moutinho</div>
+      <div class="mao vini" id="opt-vini" onclick="selAuthor('vini')">Vinícius</div>
+      <div class="mao felipe" id="opt-felipe" onclick="selAuthor('felipe')">Felipe Meireles</div>
+    </div>
+    <span class="m-label">Seção</span>
+    <div class="m-sec-info" id="m-sec-lbl">—</div>
+    <span class="m-label">Comentário</span>
+    <textarea class="m-input" id="m-text" placeholder="Escreva seu comentário aqui…" rows="4"></textarea>
+    <div class="m-foot">
+      <button class="tbtn tbtn-cancel" onclick="closeModal()">Cancelar</button>
+      <button class="tbtn tbtn-primary" onclick="saveComment()">Salvar &nbsp;⌘↵</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EXPORTAR -->
+<div class="mo" id="mo-exp">
+  <div class="modal" style="width:560px">
+    <div class="m-title">Exportar comentários</div>
+    <p style="font-size:13px;font-weight:600;color:var(--navy);opacity:.65;line-height:1.5;margin-bottom:4px">Todos os comentários dos 3 revisores, agrupados por seção. Copie e cole no chat para solicitar as alterações.</p>
+    <div class="exp-area" id="exp-content"></div>
+    <div class="copy-ok" id="copy-ok">✓ Copiado para a área de transferência!</div>
+    <div class="m-foot">
+      <button class="tbtn tbtn-cancel" onclick="closeExport()">Fechar</button>
+      <button class="tbtn tbtn-primary" onclick="copyExp()">Copiar tudo</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY = 'hgap_final_v1';
+const AUTHORS = {
+  ana:    {name:'Ana Moutinho',    init:'AM'},
+  vini:   {name:'Vinícius',        init:'V'},
+  felipe: {name:'Felipe Meireles', init:'FM'}
+};
+
+const load = () => { try { return JSON.parse(localStorage.getItem(KEY)||'[]'); } catch(e){return[];} };
+const persist = c => localStorage.setItem(KEY, JSON.stringify(c));
+
+let comments = load();
+let curSec = null, curSecLbl = '';
+let selA = 'ana';
+let filters = {ana:true, vini:true, felipe:true};
+let sidebarOpen = true;
+
+renderAll();
+
+// ── SIDEBAR TOGGLE ──
+function toggleSidebar() {
+  sidebarOpen = !sidebarOpen;
+  document.getElementById('c-sidebar').classList.toggle('collapsed', !sidebarOpen);
+  document.getElementById('sidebar-toggle-lbl').textContent = sidebarOpen ? 'Ocultar comentários' : 'Ver comentários';
+}
+
+// ── MODAL ADD ──
+function openModal(sec, lbl) {
+  curSec = sec; curSecLbl = lbl;
+  document.getElementById('m-sec-lbl').textContent = lbl;
+  document.getElementById('m-text').value = '';
+  document.getElementById('mo-add').classList.add('open');
+  setTimeout(()=>document.getElementById('m-text').focus(), 180);
+}
+function closeModal() { document.getElementById('mo-add').classList.remove('open'); }
+
+function selAuthor(a) {
+  selA = a;
+  ['ana','vini','felipe'].forEach(x =>
+    document.getElementById('opt-'+x).classList.toggle('sel', x===a)
+  );
+}
+
+function saveComment() {
+  const text = document.getElementById('m-text').value.trim();
+  if (!text) { showToast('Escreva algo antes de salvar.'); return; }
+  const now = new Date();
+  const date = now.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})
+    +' '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  comments.push({
+    id: Date.now(), section: curSec, secLbl: curSecLbl,
+    author: selA, name: AUTHORS[selA].name, init: AUTHORS[selA].init,
+    text, date, ts: now.getTime()
+  });
+  persist(comments);
+  closeModal();
+  renderAll();
+  showToast('Comentário salvo!');
+  // Abrir sidebar se estiver fechada
+  if (!sidebarOpen) toggleSidebar();
+}
+
+function delComment(id) {
+  comments = comments.filter(c=>c.id!==id);
+  persist(comments);
+  renderAll();
+  showToast('Removido.');
+}
+
+// ── RENDER ──
+function renderAll() { renderSecs(); renderSidebar(); updateStats(); }
+
+function renderSecs() {
+  document.querySelectorAll('[id^="cli-"]').forEach(el=>el.innerHTML='');
+  document.querySelectorAll('.section').forEach(el=>el.classList.remove('has-c'));
+  comments.filter(c=>filters[c.author]).forEach(c=>{
+    const el = document.getElementById('cli-'+c.section);
+    if (!el) return;
+    document.getElementById(c.section)?.classList.add('has-c');
+    const b = document.createElement('div');
+    b.className = `balloon ${c.author}`;
+    b.innerHTML = `<div class="b-head">
+      <div class="b-av cav-${c.author}">${c.init}</div>
+      <span class="b-author">${c.name}</span>
+      <span class="b-date">${c.date}</span>
+    </div>
+    <div class="b-text">${esc(c.text)}</div>
+    <button class="b-del" onclick="delComment(${c.id})" title="Remover">✕</button>`;
+    el.appendChild(b);
+  });
+}
+
+function renderSidebar() {
+  const list = document.getElementById('csb-list');
+  list.querySelectorAll('.ci').forEach(el=>el.remove());
+  const vis = [...comments].filter(c=>filters[c.author]).sort((a,b)=>b.ts-a.ts);
+  document.getElementById('csb-empty').style.display = vis.length ? 'none' : 'block';
+  vis.forEach(c=>{
+    const item = document.createElement('div');
+    item.className='ci';
+    item.innerHTML=`<div class="ci-head">
+      <div class="cav cav-${c.author}">${c.init}</div>
+      <div><span class="ci-author">${c.name}</span><span class="ci-date">${c.date}</span></div>
+    </div>
+    <div class="ci-sec">${c.secLbl}</div>
+    <div class="ci-prev">${esc(c.text)}</div>
+    <button class="ci-del" onclick="event.stopPropagation();delComment(${c.id})">✕</button>`;
+    item.addEventListener('click', ()=>scrollToSec(c.section));
+    list.appendChild(item);
+  });
+}
+
+function updateStats() {
+  ['ana','vini','felipe'].forEach(a=>
+    document.getElementById('ct-'+a).textContent = comments.filter(c=>c.author===a).length
+  );
+  document.getElementById('ct-total').textContent = comments.length;
+}
+
+function filterAuthor(a) {
+  filters[a] = !filters[a];
+  if (!Object.values(filters).some(Boolean)) filters={ana:true,vini:true,felipe:true};
+  ['ana','vini','felipe'].forEach(x=>
+    document.querySelector('.abtn.'+x).classList.toggle('active', filters[x])
+  );
+  renderAll();
+}
+
+// ── EXPORT (sempre todos) ──
+function openExport() {
+  if (!comments.length) { showToast('Nenhum comentário para exportar.'); return; }
+  const sorted = [...comments].sort((a,b)=>a.ts-b.ts);
+  const grouped = {};
+  sorted.forEach(c=>{ if(!grouped[c.secLbl]) grouped[c.secLbl]=[]; grouped[c.secLbl].push(c); });
+  let out = `COMENTÁRIOS — Human Global Aesthetics Program 2026\n`;
+  out += `Exportado em: ${new Date().toLocaleString('pt-BR')}\n`;
+  out += `Total: ${comments.length} comentário(s)\n`;
+  ['ana','vini','felipe'].forEach(a=>{
+    const n=comments.filter(c=>c.author===a).length;
+    if(n) out+=`${AUTHORS[a].name}: ${n}\n`;
+  });
+  out += '─'.repeat(54)+'\n\n';
+  Object.entries(grouped).forEach(([sec,coms])=>{
+    out += `【 ${sec} 】\n\n`;
+    coms.forEach((c,i)=>{ out+=`${i+1}. [${c.name}] — ${c.date}\n   ${c.text}\n\n`; });
+    out += '─'.repeat(54)+'\n\n';
+  });
+  document.getElementById('exp-content').textContent = out;
+  document.getElementById('copy-ok').classList.remove('show');
+  document.getElementById('mo-exp').classList.add('open');
+}
+function closeExport() { document.getElementById('mo-exp').classList.remove('open'); }
+function copyExp() {
+  const t = document.getElementById('exp-content').textContent;
+  navigator.clipboard.writeText(t).catch(()=>{
+    const ta=document.createElement('textarea');
+    ta.value=t; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+  });
+  document.getElementById('copy-ok').classList.add('show');
+  setTimeout(()=>document.getElementById('copy-ok').classList.remove('show'),3000);
+}
+
+// ── UTILS ──
+function scrollToSec(id) {
+  const el = document.getElementById(id); if(!el) return;
+  el.scrollIntoView({behavior:'smooth',block:'center'});
+  const orig = el.style.boxShadow;
+  el.style.boxShadow='0 0 0 3px rgba(21,101,192,.4)';
+  setTimeout(()=>el.style.boxShadow=orig,1500);
+}
+function showToast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2200);
+}
+function esc(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+          .replace(/"/g,'&quot;').replace(/\n/g,'<br>');
+}
+
+['mo-add','mo-exp'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',function(e){
+    if(e.target===this) this.classList.remove('open');
+  });
+});
+document.getElementById('m-text').addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)) saveComment();
+});
+</script>
 </body>
 </html>
