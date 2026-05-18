@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planejamento de Tráfego — Human Global Aesthetics Program 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#EAEAEA;--white:#FFFFFF;--navy:#002055;--navy2:#003580;
+  --blue:#1565C0;--blue2:#1976D2;--blue3:#2196F3;--blue4:#0057D9;
+  --badge-bg:#EBF2FF;--div:rgba(0,53,128,0.12);
+  --sh:0 2px 12px rgba(0,53,128,0.06);
+  --sans:'Nunito Sans',system-ui,sans-serif;
+  --display:'Nunito',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--navy);font-size:14px;line-height:1.6}
+.page{max-width:960px;margin:0 auto;padding:0 40px 80px}
+
+/* COVER */
+.cover{display:grid;grid-template-columns:63% 37%;min-height:280px;margin:0 -40px 56px;overflow:hidden}
+.cl{background:var(--bg);padding:52px 48px 44px;position:relative}
+.cl::before{content:'';position:absolute;top:-18px;left:-18px;width:72px;height:72px;background:var(--white)}
+.cl::after{content:'';position:absolute;top:0;left:0;width:36px;height:36px;background:var(--bg)}
+.cbadge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--badge-bg);color:var(--blue);padding:4px 10px;border-radius:6px;margin-bottom:18px}
+.cover h1{font-family:var(--display);font-size:40px;font-weight:900;line-height:1.1;color:var(--navy);margin-bottom:10px}
+.cover h1 span{color:var(--blue)}
+.csub{font-size:13px;font-weight:600;color:var(--blue2);margin-bottom:28px}
+.cstats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--div);border-radius:12px;overflow:hidden;background:var(--white);box-shadow:var(--sh)}
+.cstat{padding:14px 16px;border-right:1px solid var(--div)}
+.cstat:last-child{border-right:none}
+.cstat .val{font-family:var(--display);font-size:22px;font-weight:900;color:var(--blue);display:block}
+.cstat .lbl{font-size:11px;font-weight:600;color:var(--navy2);opacity:.7;margin-top:2px;line-height:1.3}
+.cr{background:var(--navy2);padding:52px 36px 44px;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.cr::before{content:'';position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:var(--blue4);opacity:.35}
+.cr::after{content:'';position:absolute;bottom:-50px;right:-50px;width:130px;height:130px;border-radius:50%;border:2px solid var(--blue3);opacity:.3}
+.clogo{font-family:var(--display);font-size:13px;font-weight:800;color:var(--white);letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.clogo span{opacity:.5;font-weight:600;display:block;font-size:10px;margin-bottom:4px;letter-spacing:.12em}
+.ctag{font-family:var(--display);font-size:17px;font-weight:700;color:var(--white);line-height:1.35;opacity:.92;position:relative;z-index:1}
+.ctag em{color:var(--blue3);font-style:normal}
+
+/* SECTION */
+.section{margin-bottom:52px}
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.snum{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--badge-bg);color:var(--blue);padding:4px 9px;border-radius:6px;white-space:nowrap}
+.stitle{font-family:var(--display);font-size:24px;font-weight:800;color:var(--navy);flex:1}
+.sdiv{flex:1;height:1px;background:var(--div)}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+
+/* CARD */
+.card{background:var(--white);border-radius:14px;padding:20px 22px;box-shadow:var(--sh)}
+.clabel{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.cvalue{font-family:var(--display);font-size:30px;font-weight:900;color:var(--navy)}
+.cdesc{font-size:12px;font-weight:600;color:var(--navy2);opacity:.7;margin-top:5px;line-height:1.5}
+
+/* NOTES */
+.note{background:var(--badge-bg);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:12px 16px;font-size:12px;font-weight:600;color:var(--navy2);line-height:1.55;margin-top:14px}
+.note strong{color:var(--blue);font-weight:800}
+.alert{background:#fff8e6;border-left:3px solid #e6a817;border-radius:0 10px 10px 0;padding:12px 16px;font-size:12px;font-weight:600;color:#5a3e00;line-height:1.55;margin-top:14px}
+.alert strong{font-weight:800}
+
+/* GEO */
+.geo{background:var(--navy);border-radius:14px;padding:28px 32px;color:var(--white);margin-bottom:14px;position:relative;overflow:hidden}
+.geo::after{content:'';position:absolute;bottom:-40px;right:-40px;width:120px;height:120px;border-radius:50%;border:2px solid var(--blue3);opacity:.2}
+.geo-lbl{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue3);margin-bottom:8px}
+.geo-title{font-family:var(--display);font-size:22px;font-weight:900;margin-bottom:10px}
+.gpct{font-family:var(--display);font-size:36px;font-weight:900;color:var(--blue3)}
+.gpct.dim{color:var(--white);opacity:.5}
+
+/* MAILING */
+.mbox{background:var(--white);border:2px solid var(--blue);border-radius:14px;padding:24px 28px;margin-bottom:14px}
+.mbox-title{font-family:var(--display);font-size:17px;font-weight:900;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.mstats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.mstat{background:var(--badge-bg);border-radius:10px;padding:14px 16px}
+.mstat .val{font-family:var(--display);font-size:24px;font-weight:900;color:var(--blue)}
+.mstat .lbl{font-size:11px;font-weight:700;color:var(--navy2);opacity:.7;margin-top:3px}
+.cdist{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cdi{background:var(--bg);border-radius:8px;padding:10px 14px}
+.cdi .city{font-size:11px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.cdi .count{font-family:var(--display);font-size:20px;font-weight:900;color:var(--blue)}
+.cdi .detail{font-size:11px;font-weight:600;color:var(--navy2);opacity:.55;margin-top:1px}
+
+/* CHANNEL */
+.channel{background:var(--white);border-radius:14px;padding:22px 24px;margin-bottom:12px;box-shadow:var(--sh)}
+.ch-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px}
+.ch-name{font-weight:800;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ch-sub{font-size:12px;font-weight:600;color:var(--navy2);opacity:.6;margin-top:2px}
+.ch-bud{text-align:right;flex-shrink:0}
+.ch-bud .amt{font-family:var(--display);font-size:20px;font-weight:900;color:var(--blue)}
+.ch-bud .pct{font-size:11px;font-weight:700;color:var(--navy2);opacity:.5}
+.bar-bg{height:4px;background:var(--bg);border-radius:4px;margin-bottom:12px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:var(--blue)}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;border:1px solid var(--div);color:var(--navy2);background:var(--bg)}
+.tag::before{content:'→ ';color:var(--blue);font-weight:800}
+.tag.hl{background:var(--badge-bg);border-color:rgba(21,101,192,.35);color:var(--blue)}
+.tag.hl::before{content:'★ '}
+
+/* BADGE */
+.badge{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px}
+.b-blue{background:var(--badge-bg);color:var(--blue)}
+.b-navy{background:var(--navy);color:var(--white)}
+.b-ok{background:#e6f4ea;color:#1a6b38}
+.b-warn{background:#fff3e0;color:#a05000}
+.b-geo{background:var(--navy2);color:var(--white)}
+
+/* BUDGET BARS */
+.brow{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.brow-lbl{width:160px;flex-shrink:0;font-size:13px;font-weight:700;color:var(--navy)}
+.brow-bg{flex:1;height:26px;background:var(--bg);border-radius:6px;overflow:hidden}
+.brow-fill{height:100%;display:flex;align-items:center;padding:0 10px;font-size:11px;font-weight:800;color:var(--white);border-radius:6px}
+.brow-val{width:80px;text-align:right;font-size:13px;font-weight:700;color:var(--navy2);flex-shrink:0}
+
+/* AD TABLE */
+.adt{width:100%;border-collapse:collapse;font-size:13px;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px}
+.adt th{background:var(--blue);color:var(--white);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;text-align:left}
+.adt td{padding:10px 14px;border-bottom:1px solid var(--div);color:var(--navy2);vertical-align:top;font-weight:600;font-size:13px}
+.adt tr:nth-child(even) td{background:#f4f7fb}
+.adt tr:last-child td{border-bottom:none}
+.adt td:first-child{color:var(--navy);font-weight:800}
+.adt caption{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--white);background:var(--navy);padding:8px 14px;text-align:left}
+
+/* CHECKLIST */
+.checklist{list-style:none;background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh)}
+.checklist li{display:flex;align-items:flex-start;gap:12px;padding:13px 18px;border-bottom:1px solid var(--div);font-size:13px;font-weight:600;color:var(--navy2);line-height:1.5}
+.checklist li:last-child{border-bottom:none}
+.checklist li:nth-child(even){background:#f4f7fb}
+.ico{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;margin-top:1px}
+.ico-ok{background:#e6f4ea;color:#1a6b38}
+.ico-warn{background:#fff3e0;color:#a05000}
+.ico-neu{background:var(--badge-bg);color:var(--blue)}
+.cs{color:var(--navy);font-weight:800;display:block;margin-bottom:2px}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--div);border-radius:2px}
+.tl{position:relative;margin-bottom:26px}
+.tl-dot{position:absolute;left:-23px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--white);border:2px solid var(--blue)}
+.tl-dot.on{background:var(--blue)}
+.tl-phase{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--badge-bg);color:var(--blue);display:inline-block;padding:2px 8px;border-radius:6px;margin-bottom:5px}
+.tl-title{font-weight:800;font-size:14px;color:var(--navy);margin-bottom:4px}
+.tl-body{font-size:13px;font-weight:600;color:var(--navy2);opacity:.75;line-height:1.55}
+
+/* CITY */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ccrd{background:var(--white);border-radius:14px;padding:20px 22px;box-shadow:var(--sh)}
+.cname{font-family:var(--display);font-size:20px;font-weight:900;color:var(--navy);margin-bottom:2px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.cdate{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+.crow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--div);font-size:12px;font-weight:600;color:var(--navy2);gap:12px}
+.crow:last-child{border-bottom:none}
+.crval{font-weight:800;color:var(--navy);text-align:right}
+
+/* CREATIVE */
+.cb{background:var(--white);border-radius:12px;overflow:hidden;margin-bottom:12px;box-shadow:var(--sh)}
+.cb-hdr{background:var(--navy);padding:10px 18px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.cb-row{display:grid;grid-template-columns:140px 1fr 100px;border-bottom:1px solid var(--div)}
+.cb-row:last-child{border-bottom:none}
+.cb-row:nth-child(even){background:#f4f7fb}
+.cbc{padding:11px 16px;font-size:13px;font-weight:600;color:var(--navy2);border-right:1px solid var(--div);line-height:1.5}
+.cbc:last-child{border-right:none}
+.cbc.s{font-weight:800;color:var(--navy)}
+
+/* KPI */
+.kpi{width:100%;font-size:13px;border-collapse:collapse;margin-top:8px}
+.kpi td{padding:7px 0;border-bottom:1px solid var(--div);font-weight:600;color:var(--navy2)}
+.kpi tr:last-child td{border-bottom:none}
+.kpi td:last-child{text-align:right;font-weight:800;color:var(--navy)}
+
+/* FOOTER */
+.footer{margin-top:64px;padding:20px 0;border-top:1px solid var(--div);display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:700;color:var(--navy2);opacity:.6}
+
+@media print{
+  body{background:white;font-size:12px}
+  .page{padding:20px}
+  .cover{margin:0 0 40px}
+  .channel,.card,.cb,.ccrd,.checklist,.mbox,.adt,.section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cl">
+    <div class="cbadge">Foco Marketing · Planejamento estratégico</div>
+    <h1>Tráfego pago —<br><span>Human Global<br>Aesthetics Program</span></h1>
+    <p class="csub">Tour EUA · Junho 2026 · Houston · Miami · Los Angeles · Orlando</p>
+    <div class="cstats">
+      <div class="cstat"><span class="val">R$ 35k</span><span class="lbl">Investimento recomendado</span></div>
+      <div class="cstat"><span class="val">65/35</span><span class="lbl">Split Brasil vs EUA</span></div>
+      <div class="cstat"><span class="val">5.887</span><span class="lbl">Contactáveis na base mailing</span></div>
+      <div class="cstat"><span class="val">3 fases</span><span class="lbl">Funil completo</span></div>
+    </div>
+  </div>
+  <div class="cr">
+    <div class="clogo"><span>Elaborado por</span>Foco Marketing</div>
+    <div class="ctag">O tráfego nasce<br>no <em>Brasil.</em><br>O evento acontece<br>nos <em>EUA.</em></div>
+  </div>
+</div>
+
+<!-- 01. GEO -->
+<div class="section">
+  <div class="sh"><span class="snum">01</span><h2 class="stitle">Decisão estratégica — onde focar o tráfego</h2><div class="sdiv"></div></div>
+
+  <div class="geo">
+    <div class="geo-lbl">Distribuição recomendada do budget</div>
+    <div class="geo-title"><span class="gpct">65%</span> Brasil &nbsp;·&nbsp; <span class="gpct dim">35%</span> EUA</div>
+    <p style="font-size:13px;font-weight:600;opacity:.82;line-height:1.6;max-width:640px">O produto é construído sobre a narrativa de internacionalização — levar o médico brasileiro para o padrão americano de luxo. Isso ressoa muito mais com quem está no Brasil olhando para fora do que com quem já está lá dentro. O Dr. Ivan tem autoridade e audiência consolidadas no Brasil. A tração orgânica e paga nasce daqui. Nos EUA, o esforço é cirúrgico — ativar os médicos brasileiros que já moram nas 4 cidades do tour.</p>
+  </div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="clabel">→ Brasil (65% do budget)</div>
+      <div style="font-size:13px;font-weight:600;color:var(--navy2);line-height:1.6;margin-top:6px">Médicos brasileiros com renda alta, interesse em expansão de carreira e audiência do Dr. Ivan no Instagram. Maior volume, menor CPA, autoridade de marca consolidada. Canais: Meta Ads + WhatsApp + e-mail para a base da Human Clinic.</div>
+    </div>
+    <div class="card">
+      <div class="clabel">→ EUA (35% do budget)</div>
+      <div style="font-size:13px;font-weight:600;color:var(--navy2);line-height:1.6;margin-top:6px">Médicos brasileiros residentes em Miami, Houston, LA e Orlando. Querem se reconectar com referências de excelência brasileiras e já estão no mercado que o programa promete ensinar. Alcançados via look-alike da base mailing + Meta Ads localizado por cidade.</div>
+    </div>
+  </div>
+  <div class="note"><strong>Conta Meta do Brasil nos EUA:</strong> a mesma conta pode ser usada sem restrições técnicas. O targeting geográfico é configurado dentro de cada Ad Set — o país do pagamento não interfere na entrega. Adaptações detalhadas na seção 06.</div>
+</div>
+
+<!-- 02. MAILING -->
+<div class="section">
+  <div class="sh"><span class="snum">02</span><h2 class="stitle">Base de mailing — análise e uso estratégico</h2><div class="sdiv"></div></div>
+
+  <div class="mbox">
+    <div class="mbox-title">
+      <span class="badge b-blue">leads_filtrados_contato.xlsx</span>
+      Raio-X da base
+    </div>
+    <div class="mstats">
+      <div class="mstat"><div class="val">6.577</div><div class="lbl">Registros totais</div></div>
+      <div class="mstat"><div class="val">5.887</div><div class="lbl">Contactáveis (DND=Não)</div></div>
+      <div class="mstat"><div class="val">4.242</div><div class="lbl">E-mails válidos</div></div>
+      <div class="mstat"><div class="val">5.761</div><div class="lbl">Celulares válidos</div></div>
+    </div>
+    <p style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:10px">Contactáveis por cluster — alinhados às datas do tour</p>
+    <div class="cdist">
+      <div class="cdi"><div class="city">Orlando (cidade)</div><div class="count">951</div><div class="detail">contactáveis</div></div>
+      <div class="cdi"><div class="city">Orlando-região</div><div class="count">816</div><div class="detail">Windermere, Winter Garden, Kissimmee, Davenport</div></div>
+      <div class="cdi"><div class="city">Jacksonville</div><div class="count">403</div><div class="detail">contactáveis (próximo ao evento de Orlando)</div></div>
+      <div class="cdi"><div class="city">Miami (cidade)</div><div class="count">300</div><div class="detail">contactáveis</div></div>
+      <div class="cdi"><div class="city">Miami-região</div><div class="count">136</div><div class="detail">Aventura, Davie, Golden Beach, Boca</div></div>
+      <div class="cdi"><div class="city">Tampa</div><div class="count">103</div><div class="detail">contactáveis</div></div>
+    </div>
+  </div>
+
+  <div class="alert"><strong>Perfil da lista:</strong> os registros são de pacientes de clínica estética (toxina botulínica, laser, preenchimento, ultraformer). Não são o público direto do evento — são os pacientes, não os médicos. Isso define exatamente como a lista deve ser usada: como semente para look-alike e como canal de indicação indireta.</div>
+
+  <div class="g2" style="margin-top:14px">
+    <div class="card" style="border-left:3px solid var(--blue);border-radius:0 14px 14px 0">
+      <div class="clabel">Uso 1 — Look-alike no Meta Ads</div>
+      <div style="font-size:13px;font-weight:600;color:var(--navy2);line-height:1.6;margin-top:6px">Fazer upload da lista como <strong style="color:var(--navy)">Custom Audience</strong> e criar público similar de 1–3%. Pessoas que já frequentaram clínicas de estética premium nos EUA — o algoritmo encontrará perfis parecidos, incluindo médicos e profissionais de saúde que orbitam esse universo. Melhor semente disponível para construir o público americano.</div>
+      <div class="note" style="margin-top:10px"><strong>Como fazer:</strong> Gerenciador → Públicos → Criar Público → Personalizado → Lista de clientes → Upload do CSV (e-mails + celulares). Depois: Criar Público Similar → 1% → País: EUA. Excluir sobreposição com a Custom Audience original.</div>
+    </div>
+    <div class="card" style="border-left:3px solid var(--blue2);border-radius:0 14px 14px 0">
+      <div class="clabel">Uso 2 — Canal de indicação indireta</div>
+      <div style="font-size:13px;font-weight:600;color:var(--navy2);line-height:1.6;margin-top:6px">Esses pacientes <strong style="color:var(--navy)">conhecem seus próprios médicos</strong>. Uma mensagem de WhatsApp ou e-mail — "Seu médico vai estar em [cidade] em junho como parte de um programa internacional — compartilhe com ele" — funciona como indicação boca a boca. Custo praticamente zero, alta relevância contextual.</div>
+      <div class="note" style="margin-top:10px"><strong>Segmentação:</strong> Priorizar os <strong>1.914 leads com Paid acima de US$ 1.000</strong> — pacientes de maior ticket, com relação mais próxima ao dermatologista. Filtrar apenas DND=Não e EmailConf=Sim.</div>
+    </div>
+  </div>
+
+  <div class="g4" style="margin-top:14px">
+    <div style="background:var(--white);border-radius:12px;padding:14px 16px;box-shadow:var(--sh)">
+      <div style="font-family:var(--display);font-size:20px;font-weight:900;color:var(--blue)">US$ 1.147</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.7;margin-top:3px">Média gasta por lead (campo Paid)</div>
+    </div>
+    <div style="background:var(--white);border-radius:12px;padding:14px 16px;box-shadow:var(--sh)">
+      <div style="font-family:var(--display);font-size:20px;font-weight:900;color:var(--blue)">1.914</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.7;margin-top:3px">Leads com Paid acima de US$ 1k</div>
+    </div>
+    <div style="background:var(--white);border-radius:12px;padding:14px 16px;box-shadow:var(--sh)">
+      <div style="font-family:var(--display);font-size:20px;font-weight:900;color:var(--blue)">282</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.7;margin-top:3px">Leads com Paid acima de US$ 5k</div>
+    </div>
+    <div style="background:var(--white);border-radius:12px;padding:14px 16px;box-shadow:var(--sh)">
+      <div style="font-family:var(--display);font-size:20px;font-weight:900;color:var(--blue)">690</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.7;margin-top:3px">DND=Sim — não contactar</div>
+    </div>
+  </div>
+</div>
+
+<!-- 03. CANAIS -->
+<div class="section">
+  <div class="sh"><span class="snum">03</span><h2 class="stitle">Estrutura de canais</h2><div class="sdiv"></div></div>
+
+  <div class="channel">
+    <div class="ch-top">
+      <div>
+        <div class="ch-name">Meta Ads (Instagram + Facebook) <span class="badge b-navy">Canal primário</span></div>
+        <div class="ch-sub">Awareness, consideração e conversão via reels, feed e stories</div>
+      </div>
+      <div class="ch-bud"><div class="amt">R$ 14.000</div><div class="pct">40% do budget total</div></div>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:40%"></div></div>
+    <div class="tags">
+      <span class="tag hl">Custom Audience — base mailing (e-mails + celulares)</span>
+      <span class="tag hl">Look-alike 1–3% da base mailing</span>
+      <span class="tag">Reels de autoridade — Dr. Ivan</span>
+      <span class="tag">Stories com CTA direto</span>
+      <span class="tag">Lead Ads</span>
+      <span class="tag">Retargeting por engajamento</span>
+      <span class="tag">Interesse: medicina + empreendedorismo médico</span>
+      <span class="tag">Geo por cidade nos EUA</span>
+      <span class="tag">Brasil nacional</span>
+    </div>
+    <div class="note"><strong>Miami recebe 30–35% deste budget</strong> — maior concentração de médicos brasileiros nos EUA. Look-alike da base é especialmente potente em Orlando (1.767 contactáveis na região) e Miami (436).</div>
+  </div>
+
+  <div class="channel">
+    <div class="ch-top">
+      <div>
+        <div class="ch-name">WhatsApp + CRM — base médicos Human Clinic <span class="badge b-ok">Maior conversão</span></div>
+        <div class="ch-sub">Ativação da base de médicos e parceiros com sequência automatizada de follow-up</div>
+      </div>
+      <div class="ch-bud"><div class="amt">R$ 3.500</div><div class="pct">10% do budget total</div></div>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:10%"></div></div>
+    <div class="tags">
+      <span class="tag">Sequência de 5 mensagens / 7 dias</span>
+      <span class="tag">Base de médicos parceiros Human Clinic</span>
+      <span class="tag">Grupos de indicação médica</span>
+      <span class="tag">Follow-up automático para não-respondentes</span>
+    </div>
+  </div>
+
+  <div class="channel">
+    <div class="ch-top">
+      <div>
+        <div class="ch-name">WhatsApp — base mailing (indicação indireta) <span class="badge b-ok">Novo</span></div>
+        <div class="ch-sub">Mensagem de indicação para os 1.914 pacientes de alto valor da lista (Paid acima de US$ 1k, DND=Não)</div>
+      </div>
+      <div class="ch-bud"><div class="amt">incluso</div><div class="pct">no budget CRM</div></div>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:5%"></div></div>
+    <div class="tags">
+      <span class="tag hl">1.914 pacientes com Paid acima de US$ 1k</span>
+      <span class="tag">Mensagem: "Seu médico vai estar em [cidade] em junho"</span>
+      <span class="tag">Link de inscrição para compartilhar com o médico</span>
+      <span class="tag">Prioridade: Orlando e Miami (maior volume de base)</span>
+    </div>
+    <div class="note"><strong>Roteiro sugerido:</strong> "Oi [nome]! O Dr. Ivan Rollemberg vai estar em [cidade] no dia [data] com um programa internacional de medicina estética. Se você tem um médico ou dermatologista de confiança, vale compartilhar: [link]. Abraço!"</div>
+  </div>
+
+  <div class="channel">
+    <div class="ch-top">
+      <div>
+        <div class="ch-name">E-mail marketing</div>
+        <div class="ch-sub">Nurturing e urgência de lotes — base médicos + base mailing (indicação)</div>
+      </div>
+      <div class="ch-bud"><div class="amt">R$ 1.750</div><div class="pct">5% do budget total</div></div>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:5%"></div></div>
+    <div class="tags">
+      <span class="tag hl">4.242 e-mails válidos da base mailing — fluxo de indicação</span>
+      <span class="tag">Lista de médicos parceiros e ex-alunos</span>
+      <span class="tag">Sequência de 5 e-mails (22/mai a 09/jun)</span>
+      <span class="tag">Abertura de cada lote com urgência</span>
+      <span class="tag">E-mail diário nas últimas 48h</span>
+    </div>
+  </div>
+
+  <div class="channel">
+    <div class="ch-top">
+      <div>
+        <div class="ch-name">Google Ads (Search + YouTube pre-roll)</div>
+        <div class="ch-sub">Captura de demanda ativa e remarketing display</div>
+      </div>
+      <div class="ch-bud"><div class="amt">R$ 8.400</div><div class="pct">24% do budget total</div></div>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:24%"></div></div>
+    <div class="tags">
+      <span class="tag">curso dermatologia EUA</span>
+      <span class="tag">injetáveis internacionalização médica</span>
+      <span class="tag">Dr. Ivan Rollemberg</span>
+      <span class="tag">Human Global Aesthetics Program</span>
+      <span class="tag">YouTube pre-roll 30s</span>
+      <span class="tag">Display remarketing</span>
+    </div>
+  </div>
+
+  <div class="channel">
+    <div class="ch-top">
+      <div>
+        <div class="ch-name">Influencers médicos + assessoria de imprensa</div>
+        <div class="ch-sub">Permuta e fee para dermatologistas com audiência médica no Instagram</div>
+      </div>
+      <div class="ch-bud"><div class="amt">R$ 7.350</div><div class="pct">21% do budget total</div></div>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:21%"></div></div>
+    <div class="tags">
+      <span class="tag">Dermatologistas 50k–500k seguidores</span>
+      <span class="tag">Médicos brasileiros nos EUA</span>
+      <span class="tag">Stories de divulgação espontânea</span>
+      <span class="tag">Lives de aquecimento pré-evento</span>
+      <span class="tag">Portais médicos brasileiros</span>
+    </div>
+    <div class="note"><strong>Prioridade:</strong> influencers com audiência de outros médicos, não de pacientes. Perfis que falam sobre carreira e negócios médicos têm impacto muito maior neste nicho do que perfis clínicos puros.</div>
+  </div>
+</div>
+
+<!-- 04. ORÇAMENTO -->
+<div class="section">
+  <div class="sh"><span class="snum">04</span><h2 class="stitle">Distribuição de orçamento</h2><div class="sdiv"></div></div>
+
+  <div style="background:var(--white);border-radius:14px;padding:24px 28px;box-shadow:var(--sh);margin-bottom:14px">
+    <div class="brow"><div class="brow-lbl">Meta Ads</div><div class="brow-bg"><div class="brow-fill" style="width:40%;background:var(--blue)">40%</div></div><div class="brow-val">R$ 14.000</div></div>
+    <div class="brow"><div class="brow-lbl">Google Ads</div><div class="brow-bg"><div class="brow-fill" style="width:24%;background:var(--navy2)">24%</div></div><div class="brow-val">R$ 8.400</div></div>
+    <div class="brow"><div class="brow-lbl">Influencers / PR</div><div class="brow-bg"><div class="brow-fill" style="width:21%;background:var(--blue2)">21%</div></div><div class="brow-val">R$ 7.350</div></div>
+    <div class="brow"><div class="brow-lbl">WhatsApp / CRM</div><div class="brow-bg"><div class="brow-fill" style="width:10%;background:#3b6ea5">10%</div></div><div class="brow-val">R$ 3.500</div></div>
+    <div class="brow"><div class="brow-lbl">E-mail marketing</div><div class="brow-bg"><div class="brow-fill" style="width:5%;background:#6b9fd4">5%</div></div><div class="brow-val">R$ 1.750</div></div>
+  </div>
+
+  <div class="g3">
+    <div class="card"><div class="clabel">Budget mínimo viável</div><div class="cvalue">R$ 20k</div><div class="cdesc">Meta Ads + WhatsApp + look-alike da base mailing. Funciona para 1–2 cidades foco (Miami + Brasil).</div></div>
+    <div class="card" style="border:2px solid var(--blue)"><div class="clabel">→ Budget recomendado</div><div class="cvalue" style="color:var(--blue)">R$ 35k</div><div class="cdesc">Cobre as 4 cidades com presença equilibrada em todos os canais e ativação completa da base mailing.</div></div>
+    <div class="card"><div class="clabel">Budget ideal (escala)</div><div class="cvalue">R$ 50k</div><div class="cdesc">Mais criativos testados, maior frequência nas cidades-foco e look-alike expandido para 3%.</div></div>
+  </div>
+
+  <div class="note"><strong>Lógica de lotes:</strong> concentre 50% do Meta Ads nos primeiros 10 dias (Lote 01). O look-alike da base mailing deve ser ativado na Fase 1 — é o público mais quente disponível para os EUA. Use os primeiros inscritos como prova social nos criativos do Lote 02 e 03.</div>
+</div>
+
+<!-- 05. META ADS -->
+<div class="section">
+  <div class="sh"><span class="snum">05</span><h2 class="stitle">Estrutura de campanhas no Meta Ads</h2><div class="sdiv"></div></div>
+
+  <table class="adt">
+    <caption>Campanha 01 — Awareness · Objetivo: ThruPlay / Alcance · Budget: R$ 4.000</caption>
+    <thead><tr><th style="width:180px">Ad Set</th><th>Segmentação</th><th style="width:140px">Geo</th></tr></thead>
+    <tbody>
+      <tr><td>Custom Audience — mailing</td><td>Upload da base de 6.577 registros. Priorizar e-mails válidos (4.242). Público de awareness — já tiveram contato com clínicas de estética premium</td><td><span class="badge b-geo">EUA (FL + demais)</span></td></tr>
+      <tr><td>Look-alike 1% — mailing</td><td>Similar à base mailing. Excluir sobreposição com Custom Audience acima. Melhor semente disponível para o mercado americano</td><td><span class="badge b-geo">EUA</span></td></tr>
+      <tr><td>Base quente BR</td><td>Lista de e-mails Human Clinic + seguidores Dr. Ivan (Custom Audience)</td><td><span class="badge b-blue">Brasil</span></td></tr>
+      <tr><td>Médicos EUA — Miami</td><td>Interesses: medicina + empreendedorismo + congressos de saúde. Idioma: português. Faixa: 28–55 anos</td><td><span class="badge b-geo">Miami FL</span></td></tr>
+      <tr><td>Médicos EUA — demais</td><td>Mesma segmentação. Ad Set separado para controle de CPA por cidade</td><td><span class="badge b-geo">Houston · LA · Orlando</span></td></tr>
+      <tr><td>Look-alike 1% — BR</td><td>Similar à lista de médicos parceiros Human Clinic. Excluir base quente</td><td><span class="badge b-blue">Brasil</span></td></tr>
+    </tbody>
+  </table>
+
+  <table class="adt">
+    <caption>Campanha 02 — Consideração · Objetivo: Tráfego / Lead Ads · Budget: R$ 5.000</caption>
+    <thead><tr><th style="width:180px">Ad Set</th><th>Segmentação</th><th style="width:140px">Geo</th></tr></thead>
+    <tbody>
+      <tr><td>Engajamento Reels</td><td>Pessoas que assistiram 50%+ dos vídeos de Awareness (Engagement Custom Audience). Excluir já inscritos</td><td><span class="badge b-blue">Ambos</span></td></tr>
+      <tr><td>Lead Ads — EUA</td><td>Formulário nativo Meta: nome, especialidade, cidade, e-mail. Interesses relacionados à internacionalização médica</td><td><span class="badge b-geo">4 cidades EUA</span></td></tr>
+      <tr><td>Look-alike 2–3% — mailing</td><td>Expansão do look-alike da base. Ativar apenas se CPA da Fase 1 estiver dentro da meta</td><td><span class="badge b-geo">EUA</span></td></tr>
+      <tr><td>Look-alike 2–3% — BR</td><td>Expansão do look-alike brasileiro. Excluir base quente e engajamento já capturado</td><td><span class="badge b-blue">Brasil</span></td></tr>
+    </tbody>
+  </table>
+
+  <table class="adt">
+    <caption>Campanha 03 — Conversão · Objetivo: Conversões (lead/purchase) · Budget: R$ 5.000</caption>
+    <thead><tr><th style="width:180px">Ad Set</th><th>Segmentação</th><th style="width:140px">Geo</th></tr></thead>
+    <tbody>
+      <tr><td>Retargeting — site</td><td>Visitou página de inscrição mas não converteu nos últimos 14 dias (pixel). Excluir já inscritos</td><td><span class="badge b-blue">Ambos</span></td></tr>
+      <tr><td>Retargeting — lead</td><td>Preencheu Lead Ad mas não finalizou inscrição. Mensagem: "Sua vaga ainda está reservada"</td><td><span class="badge b-blue">Ambos</span></td></tr>
+      <tr><td>Urgência Lote 02/03</td><td>Base quente + Custom Audience mailing + engajamento. Criativos com preço do lote vigente e countdown de vagas</td><td><span class="badge b-blue">Ambos</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 06. ADAPTAÇÕES -->
+<div class="section">
+  <div class="sh"><span class="snum">06</span><h2 class="stitle">Conta Meta Brasil — adaptações para rodar nos EUA</h2><div class="sdiv"></div></div>
+
+  <ul class="checklist">
+    <li><div class="ico ico-ok">✓</div><div><span class="cs">Geolocalização por Ad Set</span>OK sem nenhuma mudança na conta. País/estado/cidade configurados dentro de cada conjunto. Conta americana não é necessária para esse evento.</div></li>
+    <li><div class="ico ico-ok">✓</div><div><span class="cs">Método de pagamento</span>Cartão brasileiro em BRL funciona normalmente. A entrega dos anúncios nos EUA não é afetada — apenas o custo varia com o câmbio.</div></li>
+    <li><div class="ico ico-ok">✓</div><div><span class="cs">Upload da base mailing como Custom Audience</span>Funciona normalmente via Gerenciador de Anúncios. Upload de CSV com colunas de e-mail e telefone. O Meta faz o match com perfis americanos. Nenhuma configuração especial de país necessária.</div></li>
+    <li><div class="ico ico-ok">✓</div><div><span class="cs">Pixel e domínio</span>Sem alteração. O pixel instalado no domínio brasileiro registra eventos de usuários nos EUA normalmente. Verificar se os eventos estão configurados: ViewContent, Lead, Purchase.</div></li>
+    <li><div class="ico ico-warn">!</div><div><span class="cs">Criativos com linguagem clínica</span>O Meta americano reprova anúncios que mencionem procedimentos médicos específicos ou resultados estéticos prometidos. Usar nos textos: "formação profissional", "imersão médica", "expansão de carreira", "internacionalização da clínica". Nunca mencionar nomes de procedimentos no copy dos anúncios.</div></li>
+    <li><div class="ico ico-warn">!</div><div><span class="cs">Interesses de saúde restritos nos EUA</span>Segmentações como "dermatologia" ou "procedimentos estéticos" podem estar indisponíveis no mercado americano. Solução: Custom Audience da base mailing + Look-alike como base principal. Complementar com interesses adjacentes: medicina geral, empreendedorismo médico, congressos de saúde.</div></li>
+    <li><div class="ico ico-warn">!</div><div><span class="cs">Fuso horário dos anúncios</span>Conta brasileira usa Brasília (UTC-3). Houston = UTC-5, Miami = UTC-4, LA = UTC-7, Orlando = UTC-4. Recomendação: desativar ad scheduling e deixar o algoritmo otimizar por entrega 24h — mais simples para campanha curta como essa.</div></li>
+    <li><div class="ico ico-warn">!</div><div><span class="cs">Velocidade da landing page nos EUA</span>Se hospedada em servidor brasileiro, pode ter latência alta para usuários nos EUA — prejudica conversão e o Quality Score do pixel. Testar com GTmetrix (localização EUA). Se necessário, ativar Cloudflare CDN.</div></li>
+    <li><div class="ico ico-neu">→</div><div><span class="cs">Idioma dos anúncios</span>Manter português — o público-alvo são médicos brasileiros. Para ampliar alcance a latino-americanos de outras origens residentes nas cidades do tour, criar versão em espanhol como teste secundário.</div></li>
+    <li><div class="ico ico-neu">→</div><div><span class="cs">Quando abrir conta americana</span>Apenas se o volume futuro for acima de US$ 10k/mês recorrentes, se a Human Clinic tiver LLC americana, ou se quiser pagar em dólar diretamente. Para esse evento pontual, a conta brasileira atende completamente.</div></li>
+  </ul>
+</div>
+
+<!-- 07. CRIATIVOS -->
+<div class="section">
+  <div class="sh"><span class="snum">07</span><h2 class="stitle">Guia de criativos por fase</h2><div class="sdiv"></div></div>
+
+  <div class="cb">
+    <div class="cb-hdr">Fase 1 — Awareness (22–28/mai) · Reels 30–60s + Carrossel</div>
+    <div class="cb-row"><div class="cbc s">Criativo</div><div class="cbc s">Conceito / roteiro</div><div class="cbc s">Canal</div></div>
+    <div class="cb-row">
+      <div class="cbc s">Reels autoridade</div>
+      <div class="cbc">Dr. Ivan falando diretamente: "Por que a medicina estética é o novo luxo global e o que médicos brasileiros estão perdendo por não estar nos EUA." Sem menção a procedimentos — foco em carreira e visão de mercado.</div>
+      <div class="cbc"><span class="badge b-blue">Meta</span></div>
+    </div>
+    <div class="cb-row">
+      <div class="cbc s">Dados de mercado</div>
+      <div class="cbc">Motion com números: "Mercado estético americano: US$ 18 bi." Hook de curiosidade, sem CTA agressivo. Funciona bem para o look-alike da base mailing — público já familiarizado com o universo estético.</div>
+      <div class="cbc"><span class="badge b-blue">Meta + YT</span></div>
+    </div>
+    <div class="cb-row">
+      <div class="cbc s">Legado institucional</div>
+      <div class="cbc">Imagens das unidades Human Clinic (RJ, SP). 140 anos de tradição médica. Posicionamento de autoridade. Sem locução necessária — imagens + texto na tela resolvem.</div>
+      <div class="cbc"><span class="badge b-blue">Meta</span></div>
+    </div>
+  </div>
+
+  <div class="cb">
+    <div class="cb-hdr">Fase 2 — Consideração (29/mai–04/jun) · Reels 60s + Stories + Lead Ad</div>
+    <div class="cb-row"><div class="cbc s">Criativo</div><div class="cbc s">Conceito / roteiro</div><div class="cbc s">Canal</div></div>
+    <div class="cb-row">
+      <div class="cbc s">Vídeo da agenda</div>
+      <div class="cbc">60s com os 7 módulos, os 3 speakers, as 4 cidades. "Mais do que um curso — uma rota de autoridade médica." CTA: "Ver programa completo".</div>
+      <div class="cbc"><span class="badge b-blue">Meta</span></div>
+    </div>
+    <div class="cb-row">
+      <div class="cbc s">Comparativo de planos</div>
+      <div class="cbc">Carrossel: Platinum, Diamond (destaque "mais popular"), Black. Valores do lote vigente. Benefícios em comparação visual. Diamond como âncora de escolha.</div>
+      <div class="cbc"><span class="badge b-blue">Meta</span></div>
+    </div>
+    <div class="cb-row">
+      <div class="cbc s">Dr. Ivan nos EUA</div>
+      <div class="cbc">Conteúdo nativo a partir de 22/mai: chegada em Houston, clínicas visitadas, encontro com Dr. Daniel Garcia. Reels autênticos com legenda contextualizando o evento. Alto engajamento orgânico.</div>
+      <div class="cbc"><span class="badge b-ok">Orgânico + boost</span></div>
+    </div>
+  </div>
+
+  <div class="cb">
+    <div class="cb-hdr">Fase 3 — Conversão (05–09/jun) · Stories + Reels 15s + WhatsApp</div>
+    <div class="cb-row"><div class="cbc s">Criativo</div><div class="cbc s">Conceito / roteiro</div><div class="cbc s">Canal</div></div>
+    <div class="cb-row">
+      <div class="cbc s">Urgência de vagas</div>
+      <div class="cbc">"X vagas restantes em [cidade]." Contador visual. Preço Lote 03 com risco mostrando Lote 01 já esgotado. CTA: "Garantir minha vaga agora". Direcionado ao retargeting.</div>
+      <div class="cbc"><span class="badge b-warn">Retargeting</span></div>
+    </div>
+    <div class="cb-row">
+      <div class="cbc s">Depoimento rápido</div>
+      <div class="cbc">Médico inscrito gravando 15s pelo celular: "Acabei de garantir minha vaga em Miami. Não quero perder isso." Autenticidade acima de produção — converte mais nessa fase.</div>
+      <div class="cbc"><span class="badge b-blue">Meta</span></div>
+    </div>
+    <div class="cb-row">
+      <div class="cbc s">WhatsApp urgência</div>
+      <div class="cbc">"Última chance — encerramento amanhã." Mensagem pessoal da equipe converte mais do que automação excessiva. Combinar com reenvio para quem não abriu o e-mail.</div>
+      <div class="cbc"><span class="badge b-ok">WhatsApp</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08. CALENDÁRIO -->
+<div class="section">
+  <div class="sh"><span class="snum">08</span><h2 class="stitle">Calendário de ativação</h2><div class="sdiv"></div></div>
+
+  <div class="timeline">
+    <div class="tl">
+      <div class="tl-dot on"></div>
+      <div class="tl-phase">15–21 mai · Fase 0</div>
+      <div class="tl-title">Preparação e configuração</div>
+      <div class="tl-body">Instalar/verificar pixel e eventos de conversão (Lead, ViewContent, Purchase). Fazer upload da base mailing como Custom Audience no Meta. Criar look-alike 1% e 2% a partir da base. Produzir criativos de awareness (mínimo 3 vídeos). Definir lista de influencers e iniciar outreach. Testar velocidade da landing page para IPs americanos.</div>
+    </div>
+    <div class="tl">
+      <div class="tl-dot on"></div>
+      <div class="tl-phase">22–28 mai · Fase 1</div>
+      <div class="tl-title">Awareness + abertura Lote 01</div>
+      <div class="tl-body">Subir campanhas de awareness no Meta (Brasil + 4 cidades EUA) com look-alike da base mailing já ativo. Ativar Google Search. Disparar e-mail de abertura para lista de médicos e para base mailing (mensagem de indicação). WhatsApp para base quente de médicos com link de inscrição. Urgência: "Lote 01 por US$ 597 — apenas 10 vagas por cidade". Monitorar CPC e CPL nos primeiros 3 dias e ajustar criativos se necessário.</div>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">29 mai–04 jun · Fase 2</div>
+      <div class="tl-title">Consideração + Lote 02 + Dr. Ivan nos EUA</div>
+      <div class="tl-body">Virar orçamento para campanhas de conversão. Ativar retargeting de quem clicou mas não inscreveu. Abrir Lote 02. Aproveitar presença física do Dr. Ivan nos EUA para conteúdo nativo nos stories e reels. Lives de aquecimento com Dr. Ivan e Dr. Daniel Garcia. Segunda sequência de e-mail para médicos e mensagem de indicação para os 1.914 pacientes de alto valor da base mailing.</div>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">05–09 jun · Fase 3</div>
+      <div class="tl-title">Urgência final + Lote 03</div>
+      <div class="tl-body">Última chamada. Stories diários com contador de vagas por cidade. E-mail diário (máximo 1 por dia). WhatsApp com countdown nas últimas 48h — base médicos + 1.914 pacientes de alto valor da base mailing. Reforço no Google Search com termos de marca. Desligar awareness — 100% do budget em conversão e retargeting.</div>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">01–09 jun · Durante os eventos</div>
+      <div class="tl-title">Conteúdo ao vivo por cidade</div>
+      <div class="tl-body">Capturar stories e reels em cada cidade. Depoimentos rápidos de participantes (15s pelo celular). Fotos nos locais. Conteúdo que serve tanto para urgência das cidades seguintes quanto como ativo de vendas para futuras edições do programa.</div>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">10 jun+ · Pós-evento</div>
+      <div class="tl-title">Prova social e nurturing</div>
+      <div class="tl-body">Compilar depoimentos, fotos e números (participantes por cidade, diversidade de especialidades). Criar conteúdo de resultado para redes sociais. Iniciar nurturing da base de leads gerados para próximas edições. Relatório de ROAS por canal e cidade. Salvar look-alike da base mailing para próximas campanhas — já validado pelo evento.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 09. POR CIDADE -->
+<div class="section">
+  <div class="sh"><span class="snum">09</span><h2 class="stitle">Budget por cidade — Meta Ads EUA</h2><div class="sdiv"></div></div>
+
+  <div class="cgrid">
+    <div class="ccrd">
+      <div class="cname">Miami <span class="badge b-navy">Foco principal</span></div>
+      <div class="cdate">03 jun · Coral Gables, FL</div>
+      <div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 4.900 (35%)</span></div>
+      <div class="crow"><span>Base mailing na região</span><span class="crval">436 contactáveis</span></div>
+      <div class="crow"><span>Geo targeting</span><span class="crval">Miami-Dade + Broward + Palm Beach</span></div>
+      <div class="crow"><span>Meta de inscrições</span><span class="crval">60–70 pessoas</span></div>
+    </div>
+    <div class="ccrd">
+      <div class="cname">Orlando <span class="badge b-ok">Maior base</span></div>
+      <div class="cdate">09 jun · International Drive, FL</div>
+      <div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 2.800 (20%)</span></div>
+      <div class="crow"><span>Base mailing na região</span><span class="crval">1.767 contactáveis</span></div>
+      <div class="crow"><span>Geo targeting</span><span class="crval">Orange + Osceola + Polk counties</span></div>
+      <div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div>
+    </div>
+    <div class="ccrd">
+      <div class="cname">Houston</div>
+      <div class="cdate">01 jun · St. Joseph's Medical Center, TX</div>
+      <div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 2.800 (20%)</span></div>
+      <div class="crow"><span>Base mailing na região</span><span class="crval">2 contactáveis — quase zero</span></div>
+      <div class="crow"><span>Geo targeting</span><span class="crval">Harris County + The Woodlands</span></div>
+      <div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div>
+    </div>
+    <div class="ccrd">
+      <div class="cname">Los Angeles</div>
+      <div class="cdate">06 jun · Hilton LAX, CA</div>
+      <div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 3.500 (25%)</span></div>
+      <div class="crow"><span>Base mailing na região</span><span class="crval">4 contactáveis — quase zero</span></div>
+      <div class="crow"><span>Geo targeting</span><span class="crval">LA County + Orange County</span></div>
+      <div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:14px"><strong>Houston e LA:</strong> a base mailing tem cobertura quase nula nessas cidades. O look-alike e os interesses orgânicos do Meta são os únicos caminhos para essas praças. Confirmar se a Human Clinic tem alguma lista local de parceiros antes do evento.</div>
+  <div class="alert" style="margin-top:10px"><strong>Brasil também recebe segmentação separada:</strong> médicos com renda alta e histórico de viagens internacionais que possam comparecer viajando do Brasil. Budget adicional de R$ 1.400 do Meta alocado para esse público, com criativo específico "Venha para os EUA com a gente".</div>
+</div>
+
+<!-- 10. FATURAMENTO -->
+<div class="section">
+  <div class="sh"><span class="snum">10</span><h2 class="stitle">Estimativa de faturamento</h2><div class="sdiv"></div></div>
+
+  <p style="font-size:13px;font-weight:600;color:var(--navy2);margin-bottom:20px;line-height:1.6">Projeção baseada nos preços dos 3 planos (Platinum, Diamond, Black), na distribuição esperada de vendas por lote e no mix estimado de adesão por plano. Câmbio de referência: R$ 5,80/US$.</p>
+
+  <!-- 3 CENÁRIOS -->
+  <div class="g3" style="margin-bottom:14px">
+    <div class="card">
+      <div class="clabel">Cenário conservador · 70% da meta</div>
+      <div style="font-family:var(--display);font-size:11px;font-weight:800;color:var(--navy2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">140 inscrições · 4 cidades</div>
+      <div style="font-family:var(--display);font-size:32px;font-weight:900;color:var(--navy)">US$ 202k</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:4px">≈ R$ 1,17 milhão</div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--div)">
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--navy2);padding:4px 0;border-bottom:1px solid var(--div)"><span>ROI sobre tráfego</span><span style="font-weight:800;color:var(--navy)">33x</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--navy2);padding:4px 0"><span>Ticket médio</span><span style="font-weight:800;color:var(--navy)">US$ 1.445</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="border:2px solid var(--blue)">
+      <div class="clabel" style="display:flex;align-items:center;gap:6px">Cenário realista · meta <span class="badge b-blue">Base</span></div>
+      <div style="font-family:var(--display);font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">200 inscrições · 4 cidades</div>
+      <div style="font-family:var(--display);font-size:32px;font-weight:900;color:var(--blue)">US$ 288k</div>
+      <div style="font-size:11px;font-weight:700;color:var(--blue2);opacity:.8;margin-top:4px">≈ R$ 1,67 milhão</div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--div)">
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--navy2);padding:4px 0;border-bottom:1px solid var(--div)"><span>ROI sobre tráfego</span><span style="font-weight:800;color:var(--blue)">48x</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--navy2);padding:4px 0"><span>Ticket médio</span><span style="font-weight:800;color:var(--navy)">US$ 1.445</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="clabel">Cenário otimista · 130% da meta</div>
+      <div style="font-family:var(--display);font-size:11px;font-weight:800;color:var(--navy2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">260 inscrições · 4 cidades</div>
+      <div style="font-family:var(--display);font-size:32px;font-weight:900;color:var(--navy)">US$ 375k</div>
+      <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:4px">≈ R$ 2,18 milhões</div>
+      <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--div)">
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--navy2);padding:4px 0;border-bottom:1px solid var(--div)"><span>ROI sobre tráfego</span><span style="font-weight:800;color:var(--navy)">62x</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:600;color:var(--navy2);padding:4px 0"><span>Ticket médio</span><span style="font-weight:800;color:var(--navy)">US$ 1.445</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN POR PLANO E LOTE -->
+  <div style="background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
+    <div style="background:var(--navy);padding:10px 18px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--white)">Breakdown por plano — cenário realista (200 inscrições)</div>
+
+    <!-- HEADER -->
+    <div style="display:grid;grid-template-columns:120px 60px 80px 80px 80px 1fr;background:#f4f7fb;border-bottom:1px solid var(--div)">
+      <div style="padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)">Plano</div>
+      <div style="padding:8px 8px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-align:center">Inscrições</div>
+      <div style="padding:8px 8px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-align:center">Lote 01</div>
+      <div style="padding:8px 8px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-align:center">Lote 02</div>
+      <div style="padding:8px 8px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-align:center">Lote 03</div>
+      <div style="padding:8px 14px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-align:right">Subtotal</div>
+    </div>
+
+    <!-- PLATINUM -->
+    <div style="display:grid;grid-template-columns:120px 60px 80px 80px 80px 1fr;border-bottom:1px solid var(--div)">
+      <div style="padding:12px 14px;font-weight:800;color:var(--navy);font-size:13px">Platinum</div>
+      <div style="padding:12px 8px;font-weight:800;color:var(--navy);font-size:13px;text-align:center">40</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center">20 × US$597</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center">14 × US$797</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center">6 × US$979</div>
+      <div style="padding:12px 14px;font-weight:800;color:var(--blue);font-size:14px;text-align:right;font-family:var(--display)">US$ 28.972</div>
+    </div>
+
+    <!-- DIAMOND -->
+    <div style="display:grid;grid-template-columns:120px 60px 80px 80px 80px 1fr;border-bottom:1px solid var(--div);background:#f4f7fb">
+      <div style="padding:12px 14px;font-weight:800;color:var(--navy);font-size:13px">Diamond</div>
+      <div style="padding:12px 8px;font-weight:800;color:var(--navy);font-size:13px;text-align:center">100</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center">45 × US$897</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center">35 × US$1.179</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center">20 × US$1.279</div>
+      <div style="padding:12px 14px;font-weight:800;color:var(--blue);font-size:14px;text-align:right;font-family:var(--display)">US$ 107.210</div>
+    </div>
+
+    <!-- BLACK -->
+    <div style="display:grid;grid-template-columns:120px 60px 80px 80px 80px 1fr;border-bottom:1px solid var(--div)">
+      <div style="padding:12px 14px;font-weight:800;color:var(--navy);font-size:13px">Black</div>
+      <div style="padding:12px 8px;font-weight:800;color:var(--navy);font-size:13px;text-align:center">60</div>
+      <div style="padding:12px 8px;font-size:12px;font-weight:600;color:var(--navy2);text-align:center;grid-column:span 3">60 × US$ 2.499 (preço único)</div>
+      <div style="padding:12px 14px;font-weight:800;color:var(--blue);font-size:14px;text-align:right;font-family:var(--display)">US$ 149.940</div>
+    </div>
+
+    <!-- TOTAL -->
+    <div style="display:grid;grid-template-columns:120px 60px 80px 80px 80px 1fr;background:var(--navy)">
+      <div style="padding:14px 14px;font-weight:900;color:var(--white);font-size:13px;font-family:var(--display)">Total</div>
+      <div style="padding:14px 8px;font-weight:900;color:var(--white);font-size:13px;text-align:center;font-family:var(--display)">200</div>
+      <div style="padding:14px 8px;font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-align:center;grid-column:span 3">Mix: 20% Platinum · 50% Diamond · 30% Black</div>
+      <div style="padding:14px 14px;font-weight:900;color:var(--blue3);font-size:18px;text-align:right;font-family:var(--display)">US$ 286.122</div>
+    </div>
+  </div>
+
+  <!-- POR CIDADE -->
+  <div style="background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px">
+    <div style="background:var(--navy2);padding:10px 18px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--white)">Receita estimada por cidade — cenário realista</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr)">
+      <div style="padding:18px 16px;border-right:1px solid var(--div)">
+        <div style="font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">Miami</div>
+        <div style="font-family:var(--display);font-size:22px;font-weight:900;color:var(--navy)">US$ 93.703</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:2px">65 inscrições</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6">≈ R$ 543k</div>
+      </div>
+      <div style="padding:18px 16px;border-right:1px solid var(--div)">
+        <div style="font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">Orlando</div>
+        <div style="font-family:var(--display);font-size:22px;font-weight:900;color:var(--navy)">US$ 65.091</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:2px">45 inscrições</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6">≈ R$ 378k</div>
+      </div>
+      <div style="padding:18px 16px;border-right:1px solid var(--div)">
+        <div style="font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">Houston</div>
+        <div style="font-family:var(--display);font-size:22px;font-weight:900;color:var(--navy)">US$ 65.091</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:2px">45 inscrições</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6">≈ R$ 378k</div>
+      </div>
+      <div style="padding:18px 16px">
+        <div style="font-size:11px;font-weight:800;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px">Los Angeles</div>
+        <div style="font-family:var(--display);font-size:22px;font-weight:900;color:var(--navy)">US$ 65.091</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:2px">45 inscrições</div>
+        <div style="font-size:11px;font-weight:700;color:var(--navy2);opacity:.6">≈ R$ 378k</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROI VISUAL -->
+  <div style="background:var(--white);border-radius:14px;padding:22px 24px;box-shadow:var(--sh)">
+    <p style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:14px">Retorno sobre o investimento em tráfego (budget R$ 35k ≈ US$ 6.034)</p>
+    <div class="g3">
+      <div style="background:var(--bg);border-radius:10px;padding:14px 16px">
+        <div style="font-size:11px;font-weight:800;color:var(--navy2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Conservador</div>
+        <div style="font-family:var(--display);font-size:28px;font-weight:900;color:var(--navy)">33x</div>
+        <div style="font-size:12px;font-weight:600;color:var(--navy2);opacity:.7;margin-top:2px">US$ 202k gerados</div>
+      </div>
+      <div style="background:var(--badge-bg);border-radius:10px;padding:14px 16px;border:1px solid rgba(21,101,192,.2)">
+        <div style="font-size:11px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Realista</div>
+        <div style="font-family:var(--display);font-size:28px;font-weight:900;color:var(--blue)">48x</div>
+        <div style="font-size:12px;font-weight:600;color:var(--navy2);opacity:.7;margin-top:2px">US$ 288k gerados</div>
+      </div>
+      <div style="background:var(--bg);border-radius:10px;padding:14px 16px">
+        <div style="font-size:11px;font-weight:800;color:var(--navy2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px">Otimista</div>
+        <div style="font-family:var(--display);font-size:28px;font-weight:900;color:var(--navy)">62x</div>
+        <div style="font-size:12px;font-weight:600;color:var(--navy2);opacity:.7;margin-top:2px">US$ 375k gerados</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:14px"><strong>Premissas do cálculo:</strong> mix de planos estimado em 20% Platinum / 50% Diamond / 30% Black. Distribuição de lotes: 50% Lote 01 / 35% Lote 02 / 15% Lote 03 (Platinum e Diamond); Black tem preço único. Meta de 65 inscrições em Miami e 45 nas demais 3 cidades. Não inclui receita de produtos Toskani, mentorias avulsas ou futuros cursos gerados pela base de leads captada.</div>
+</div>
+
+<!-- 11. KPIs -->
+<div class="section">
+  <div class="sh"><span class="snum">11</span><h2 class="stitle">KPIs e metas por canal</h2><div class="sdiv"></div></div>
+
+  <div class="g2">
+    <div class="card">
+      <div class="clabel">Meta Ads</div>
+      <table class="kpi">
+        <tr><td>CPL (custo por lead)</td><td>≤ R$ 35</td></tr>
+        <tr><td>CPA (custo por inscrição)</td><td>≤ R$ 200</td></tr>
+        <tr><td>CTR médio esperado</td><td>1,5–3%</td></tr>
+        <tr><td>ROAS alvo (Lote 01)</td><td>5:1</td></tr>
+        <tr><td>Match rate da base mailing</td><td>≥ 60%</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="clabel">Google Ads</div>
+      <table class="kpi">
+        <tr><td>CPC médio (Search)</td><td>R$ 2–6</td></tr>
+        <tr><td>Taxa de conversão esperada</td><td>3–6%</td></tr>
+        <tr><td>Impressão de marca (Search)</td><td>Top 3</td></tr>
+        <tr><td>CPV YouTube (pre-roll)</td><td>≤ R$ 0,20</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="clabel">WhatsApp (médicos + indicação mailing)</div>
+      <table class="kpi">
+        <tr><td>Taxa de abertura — base médicos</td><td>80–95%</td></tr>
+        <tr><td>Taxa de resposta — base médicos</td><td>15–30%</td></tr>
+        <tr><td>Taxa de encaminhamento — mailing</td><td>5–10%</td></tr>
+        <tr><td>Conversão em inscrição</td><td>5–12%</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="clabel">E-mail</div>
+      <table class="kpi">
+        <tr><td>Taxa de abertura alvo</td><td>35–50%</td></tr>
+        <tr><td>CTR no e-mail</td><td>8–15%</td></tr>
+        <tr><td>Descadastros tolerados</td><td>≤ 2%</td></tr>
+        <tr><td>Conversão direta por e-mail</td><td>1–3%</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>Foco Marketing · Planejamento estratégico de tráfego pago</div>
+  <div>Human Global Aesthetics Program · Tour EUA Junho 2026 · Maio/2026</div>
+</div>
+
+</div>
+</body>
+</html>
