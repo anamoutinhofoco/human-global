@@ -270,11 +270,10 @@ body { display:flex; flex-direction:column; min-height:100vh; background:var(--b
   background:none; border:1.5px dashed rgba(21,101,192,.35);
   border-radius:8px; width:100%; padding:8px;
   color:var(--blue); font-size:12px; font-weight:800;
-  cursor:pointer; opacity:0; transition:opacity .15s;
+  cursor:pointer; opacity:1; transition:background .15s, border-color .15s;
   letter-spacing:.06em; text-transform:uppercase;
 }
-.section:hover .add-c-btn { opacity:1; }
-.add-c-btn:hover { background:var(--badge-bg); border-style:solid; }
+.add-c-btn:hover { background:var(--badge-bg); border-style:solid; border-color:var(--blue); }
 
 /* Balões de comentário inline */
 .c-list-inline { display:flex; flex-direction:column; gap:7px; margin-top:10px; }
