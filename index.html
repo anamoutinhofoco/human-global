@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Human Global Aesthetics Program — Planejamento de Tráfego 2026</title>
+<title>Human Global Aesthetics Program — Planejamento Atualizado 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,9 +14,11 @@
   --sans:'Nunito Sans',system-ui,sans-serif;--display:'Nunito',system-ui,sans-serif;
   --a-bg:#EFF6FF;--a-border:#1565C0;--a-text:#002055;--a-accent:#1565C0;
   --b-bg:#F0FDF4;--b-border:#16A34A;--b-text:#14532D;--b-accent:#16A34A;
+  --warn-bg:#FFF7ED;--warn-b:#EA580C;--warn-t:#7C2D12;
   --ana-bg:#EBF2FF;--ana-b:#1565C0;--ana-t:#002055;
   --vini-bg:#F0FDF4;--vini-b:#16A34A;--vini-t:#14532D;
   --felipe-bg:#FFF7ED;--felipe-b:#EA580C;--felipe-t:#7C2D12;
+  --update-bg:#FFF9E6;--update-b:#D97706;--update-t:#78350F;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:100vh;display:flex;flex-direction:column}
@@ -32,6 +34,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .btn-success{background:#16A34A;color:#fff}.btn-success:hover{background:#15803D}
 .btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2)}
 .btn-cancel{background:#eee;color:var(--navy)}.btn-cancel:hover{background:#ddd}
+.version-tag{background:rgba(217,119,6,.3);color:#FCD34D;font-size:10px;font-weight:800;letter-spacing:.1em;padding:3px 8px;border-radius:5px;text-transform:uppercase}
 
 /* APP */
 .app{display:flex;padding-top:52px;min-height:calc(100vh - 52px)}
@@ -73,6 +76,17 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .doc-content{flex:1;min-width:0}
 .page{max-width:960px;margin:0 auto;padding:40px 40px 80px}
 
+/* UPDATE BANNER */
+.update-banner{background:var(--update-bg);border:1.5px solid var(--update-b);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:flex-start;gap:14px}
+.ub-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.ub-title{font-family:var(--display);font-size:14px;font-weight:900;color:var(--update-t);margin-bottom:5px}
+.ub-body{font-size:12px;font-weight:600;color:var(--update-t);line-height:1.6}
+.ub-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.ub-pill{font-size:10px;font-weight:800;background:rgba(217,119,6,.15);color:var(--update-t);border:1px solid rgba(217,119,6,.4);border-radius:5px;padding:2px 7px}
+
+/* UPDATE INLINE tag */
+.upd-tag{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--update-bg);color:var(--update-t);border:1px solid var(--update-b);padding:2px 6px;border-radius:4px;vertical-align:middle;margin-left:5px}
+
 /* COVER */
 .cover{display:grid;grid-template-columns:63% 37%;min-height:250px;margin:0 -40px 44px;overflow:hidden}
 .cl{background:var(--bg);padding:44px 40px 36px;position:relative}
@@ -103,7 +117,30 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .sdiv{flex:1;height:1px;background:var(--div)}
 .note{background:var(--badge-bg);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:10px 14px;font-size:12px;font-weight:600;color:var(--navy2);line-height:1.55;margin-top:12px}
 .note strong{color:var(--blue);font-weight:800}
+.note.warn{background:var(--warn-bg);border-color:var(--warn-b)}.note.warn strong{color:var(--warn-b)}
 .slabel{font-size:11px;font-weight:800;color:var(--navy);letter-spacing:.08em;text-transform:uppercase;margin:14px 0 9px;opacity:.55}
+
+/* TOUR CARDS */
+.tour-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.tour-card{border-radius:12px;padding:18px 20px;position:relative;overflow:hidden}
+.tour-card.junho{background:var(--navy);color:#fff}
+.tour-card.agosto{background:var(--b-bg);border:2px solid var(--b-border)}
+.tour-card .tc-badge{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:block}
+.tour-card.junho .tc-badge{color:var(--blue3)}
+.tour-card.agosto .tc-badge{color:var(--b-accent)}
+.tour-card .tc-title{font-family:var(--display);font-size:18px;font-weight:900;margin-bottom:6px}
+.tour-card.junho .tc-title{color:#fff}
+.tour-card.agosto .tc-title{color:var(--b-text)}
+.tour-card .tc-body{font-size:12px;font-weight:600;line-height:1.6}
+.tour-card.junho .tc-body{color:rgba(255,255,255,.75)}
+.tour-card.agosto .tc-body{color:var(--b-text)}
+.tour-card .tc-datas{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.tour-card .tc-data{font-size:11px;font-weight:800;padding:3px 8px;border-radius:5px}
+.tour-card.junho .tc-data{background:rgba(255,255,255,.12);color:#fff}
+.tour-card.agosto .tc-data{background:var(--b-border);color:#fff}
+.tour-card::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;opacity:.15}
+.tour-card.junho::before{background:var(--blue3)}
+.tour-card.agosto::before{background:var(--b-border)}
 
 /* BIFURCAÇÃO */
 .bifurcacao{background:var(--navy);border-radius:12px;padding:22px 26px;margin-bottom:18px;position:relative;overflow:hidden}
@@ -152,6 +189,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .badge{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:5px}
 .b-blue{background:var(--badge-bg);color:var(--blue)}.b-navy{background:var(--navy);color:#fff}
 .b-ok{background:#e6f4ea;color:#1a6b38}.b-warn{background:#fff3e0;color:#a05000}.b-geo{background:var(--navy2);color:#fff}
+.b-update{background:var(--update-bg);color:var(--update-t);border:1px solid var(--update-b)}
 
 /* BUDGET */
 .brow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
@@ -175,17 +213,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .checklist li:last-child{border-bottom:none}.checklist li:nth-child(even){background:#f4f7fb}
 .ico{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;flex-shrink:0;margin-top:1px}
 .ico-ok{background:#e6f4ea;color:#1a6b38}.ico-warn{background:#fff3e0;color:#a05000}.ico-neu{background:var(--badge-bg);color:var(--blue)}
+.ico-pend{background:var(--update-bg);color:var(--update-t)}
 .cs{color:var(--navy);font-weight:800;display:block;margin-bottom:2px}
-
-/* TIMELINE */
-.timeline{position:relative;padding-left:26px}
-.timeline::before{content:'';position:absolute;left:6px;top:10px;bottom:10px;width:2px;background:var(--div);border-radius:2px}
-.tl{position:relative;margin-bottom:20px}
-.tl-dot{position:absolute;left:-21px;top:4px;width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
-.tl-dot.on{background:var(--blue)}
-.tl-phase{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--badge-bg);color:var(--blue);display:inline-block;padding:2px 7px;border-radius:5px;margin-bottom:4px}
-.tl-title{font-weight:800;font-size:13px;color:var(--navy);margin-bottom:3px}
-.tl-body{font-size:12px;font-weight:600;color:var(--navy2);opacity:.75;line-height:1.55}
 
 /* CITY */
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -204,8 +233,8 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .cbc:last-child{border-right:none}.cbc.s{font-weight:800;color:var(--navy)}
 
 /* KPI */
-.kpi{width:100%;font-size:12px;border-collapse:collapse;margin-top:7px}
-.kpi td{padding:6px 0;border-bottom:1px solid var(--div);font-weight:600;color:var(--navy2)}
+.kpi{width:100%;border-collapse:collapse;margin-top:7px}
+.kpi td{padding:6px 0;border-bottom:1px solid var(--div);font-weight:600;color:var(--navy2);font-size:12px}
 .kpi tr:last-child td{border-bottom:none}.kpi td:last-child{text-align:right;font-weight:800;color:var(--navy)}
 
 /* FAT CARDS */
@@ -216,6 +245,28 @@ body{font-family:var(--sans);background:var(--bg);color:var(--navy);min-height:1
 .fat-val.blue{color:var(--blue)}.fat-val.green{color:#15803D}
 .fat-brl{font-size:11px;font-weight:700;color:var(--navy2);opacity:.6;margin-top:2px}
 .fat-roi{font-size:11px;font-weight:700;color:var(--navy2);margin-top:8px;padding-top:6px;border-top:1px solid var(--div)}
+
+/* ELEVEN LABS CARD */
+.eleven-card{background:var(--navy);border-radius:12px;padding:18px 22px;margin-bottom:12px;position:relative;overflow:hidden}
+.eleven-card::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:var(--blue3);opacity:.2}
+.eleven-card .ec-label{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--blue3);margin-bottom:7px}
+.eleven-card .ec-title{font-family:var(--display);font-size:17px;font-weight:900;color:#fff;margin-bottom:9px}
+.eleven-card .ec-body{font-size:12px;font-weight:600;color:rgba(255,255,255,.78);line-height:1.65}
+.eleven-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px;position:relative;z-index:1}
+.eleven-step{background:rgba(255,255,255,.08);border-radius:8px;padding:10px 12px}
+.eleven-step .es-n{font-family:var(--display);font-size:22px;font-weight:900;color:var(--blue3);line-height:1}
+.eleven-step .es-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);margin-top:3px;line-height:1.4}
+
+/* STRIPE CARD */
+.stripe-card{background:var(--b-bg);border:2px solid var(--b-border);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+.stripe-card .sc-title{font-family:var(--display);font-size:15px;font-weight:900;color:var(--b-text);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.stripe-card .sc-body{font-size:12px;font-weight:600;color:var(--b-text);line-height:1.6}
+
+/* PENDENCIAS */
+.pend-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.pend-item{background:#fff;border-radius:10px;padding:13px 15px;box-shadow:var(--sh);border-left:3px solid var(--update-b)}
+.pend-item .pi-owner{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--update-t);margin-bottom:4px}
+.pend-item .pi-text{font-size:12px;font-weight:700;color:var(--navy);line-height:1.5}
 
 /* COMENTÁRIOS */
 .c-list-inline{display:flex;flex-direction:column;gap:6px;margin-top:10px}
@@ -263,6 +314,7 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
   <div class="tl">
     <div class="tlogo">Foco Marketing</div>
     <div class="tsub">Human Global Aesthetics Program · Tráfego 2026</div>
+    <div class="version-tag">v2 · 21 mai</div>
   </div>
   <div class="tr">
     <button class="btn btn-ghost" onclick="toggleSidebar()">💬 <span id="sb-lbl">Ocultar comentários</span></button>
@@ -301,27 +353,133 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
 <!-- COVER -->
 <div class="cover">
   <div class="cl">
-    <div class="cbadge">Foco Marketing · Planejamento estratégico</div>
+    <div class="cbadge">Foco Marketing · Planejamento estratégico · v2 atualizado</div>
     <h1>Tráfego pago —<br><span>Human Global<br>Aesthetics Program</span></h1>
-    <p class="csub">Tour EUA · Junho 2026 · Houston · Miami · Los Angeles · Orlando</p>
+    <p class="csub">2 Tours · Junho EUA (network) · Agosto EUA (comercial) · 4 cidades</p>
     <div class="cstats">
-      <div class="cstat"><span class="val">R$ 31,5k</span><span class="lbl">Investimento base</span></div>
+      <div class="cstat"><span class="val">R$ 31,5k</span><span class="lbl">Investimento base (tour agosto)</span></div>
       <div class="cstat"><span class="val">65/35</span><span class="lbl">Split Brasil vs EUA</span></div>
       <div class="cstat"><span class="val">5.887</span><span class="lbl">Contactáveis na base</span></div>
-      <div class="cstat"><span class="val">2 caminhos</span><span class="lbl">A confirmar com a lista</span></div>
+      <div class="cstat"><span class="val">2 tours</span><span class="lbl">Junho network · Agosto comercial</span></div>
     </div>
   </div>
   <div class="cr">
     <div class="clogo"><span>Elaborado por</span>Foco Marketing</div>
-    <div class="ctag">O tráfego nasce<br>no <em>Brasil.</em><br>O evento acontece<br>nos <em>EUA.</em></div>
+    <div class="ctag">Junho:<br><em>conteúdo</em> e network.<br>Agosto:<br><em>conversão</em> e escala.</div>
+  </div>
+</div>
+
+<!-- BANNER UPDATE -->
+<div class="update-banner">
+  <div class="ub-icon">🔄</div>
+  <div>
+    <div class="ub-title">Atualizações da reunião de 19/mai — o que mudou nesta versão</div>
+    <div class="ub-body">Reunião de alinhamento (Ana, Felipe, Thaina, Thiago, Beatriz, Gustavo) redefiniu o escopo dos dois tours e trouxe novas ferramentas e pendências.</div>
+    <div class="ub-pills">
+      <span class="ub-pill">Tour junho = só conteúdo, sem tráfego pago</span>
+      <span class="ub-pill">Tour agosto = datas definidas + Stripe Connect</span>
+      <span class="ub-pill">ElevenLabs para voz clonada do Dr. Ivan</span>
+      <span class="ub-pill">Questão jurídica de disparos a confirmar</span>
+      <span class="ub-pill">Captador de conteúdo a definir para viagem</span>
+      <span class="ub-pill">Reunião Alexis para datas, drive e identidade visual</span>
+      <span class="ub-pill">Discord + Bitrix como ferramentas de gestão</span>
+    </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 01 — COMUM                            -->
+<!-- 00 — ESTRUTURA DOS DOIS TOURS         -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-geo" data-sec-label="01 · Estratégia comum">
-  <div class="sh"><span class="snum">01</span><h2 class="stitle">O que é comum nos dois caminhos</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-tours" data-sec-label="00 · Estrutura dos dois tours">
+  <div class="sh"><span class="snum">00</span><h2 class="stitle">Estrutura dos dois tours <span class="upd-tag">✦ novo</span></h2><div class="sdiv"></div></div>
+
+  <p style="font-size:13px;font-weight:600;color:var(--navy2);line-height:1.65;margin-bottom:16px">A reunião esclareceu que há <strong style="color:var(--navy)">dois tours distintos</strong> com objetivos completamente diferentes. O planejamento de tráfego pago se aplica integralmente apenas ao <strong style="color:var(--b-accent)">Tour de Agosto</strong>. O Tour de Junho tem foco em conteúdo orgânico e network.</p>
+
+  <div class="tour-grid">
+    <div class="tour-card junho">
+      <span class="tc-badge">Tour Junho EUA — Network</span>
+      <div class="tc-title">Sem tráfego pago<br>Foco em conteúdo</div>
+      <div class="tc-body">O Dr. Ivan realiza procedimentos e faz network nos EUA. Não é uma convenção com venda de ingresso. Nosso papel: produzir conteúdo orgânico com as cidades para usar no aquecimento do Tour de Agosto. Captar conteúdo autentico: clínicas, cidades, encontros.</div>
+      <div class="tc-datas">
+        <span class="tc-data">Houston · 01 jun</span>
+        <span class="tc-data">Miami · 03 jun</span>
+        <span class="tc-data">LA · 06 jun</span>
+        <span class="tc-data">Orlando · 09 jun</span>
+      </div>
+    </div>
+    <div class="tour-card agosto">
+      <span class="tc-badge">Tour Agosto EUA — Comercial ✦ novo</span>
+      <div class="tc-title">Tráfego pago ativo<br>Conversão de inscrições</div>
+      <div class="tc-body">Este é o evento comercial. Venda de ingressos com lotes, split de pagamento via Stripe Connect (Ivan + Foco). Toda a estratégia de tráfego desta documento se aplica aqui. Iniciar comercialização antes do evento — começar a aquecer já em junho.</div>
+      <div class="tc-datas">
+        <span class="tc-data">16 ago</span>
+        <span class="tc-data">18 ago</span>
+        <span class="tc-data">20 ago</span>
+        <span class="tc-data">22 ago</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note warn"><strong>⚠ Atenção:</strong> O Dr. Ivan foi denunciado por aparentemente divulgar que realizaria procedimentos na viagem de junho sem licença. <strong>Toda comunicação sobre o Tour de Junho deve ser posicionada como network e conteúdo</strong>, jamais como prestação de serviços clínica. Confirmar orientações com o Alexis antes de qualquer post.</div>
+
+  <div style="background:#fff;border-radius:12px;padding:16px 20px;box-shadow:var(--sh);margin-top:14px">
+    <p style="font-size:11px;font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.6">Pendências imediatas — antes de qualquer publicação</p>
+    <div class="pend-grid">
+      <div class="pend-item"><div class="pi-owner">Thaina → Alexis</div><div class="pi-text">Reunião amanhã 13:30/14h para alinhar datas exatas de cada cidade, cronograma geral e acessos ao Drive</div></div>
+      <div class="pend-item"><div class="pi-owner">Felipe → definir</div><div class="pi-text">Quem vai captar conteúdo na viagem de junho? Definir captador (fornecedor local ou da equipe)</div></div>
+      <div class="pend-item"><div class="pi-owner">Thaina → Alexis</div><div class="pi-text">Pegar identidade visual do Dr. Ivan (logo R + estrelinhas) para usar em materiais</div></div>
+      <div class="pend-item"><div class="pi-owner">Thiago / Marquinhos</div><div class="pi-text">Configurar Stripe Connect para split de pagamento entre Ivan e Foco no Tour de Agosto</div></div>
+      <div class="pend-item"><div class="pi-owner">Thaina → Alexis</div><div class="pi-text">Alterar vídeo, PDF e landing page para refletir as datas de agosto (16, 18, 20, 22)</div></div>
+      <div class="pend-item"><div class="pi-owner">Ana → verificar</div><div class="pi-text">Confirmar questão jurídica de disparos via WhatsApp e e-mail para base nos EUA (fóruns de prática, não só lei)</div></div>
+    </div>
+  </div>
+
+  <div class="c-list-inline" id="cli-sec-tours"></div>
+  <button class="add-c-btn" onclick="openModal('sec-tours','00 · Estrutura dos dois tours')">+ Adicionar comentário</button>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 01 — CONTEÚDO TOUR JUNHO              -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-junho" data-sec-label="01 · Conteúdo Tour Junho (sem tráfego)">
+  <div class="sh"><span class="snum">01</span><h2 class="stitle">Tour Junho — estratégia de conteúdo <span class="upd-tag">✦ novo</span></h2><div class="sdiv"></div></div>
+
+  <p style="font-size:12px;font-weight:600;color:var(--navy2);opacity:.8;margin-bottom:14px">Sem tráfego pago. Objetivo: construir banco de conteúdo autêntico para aquecer o Tour de Agosto e fortalecer o posicionamento do Dr. Ivan nos EUA.</p>
+
+  <!-- ElevenLabs -->
+  <div class="eleven-card">
+    <div class="ec-label">Ferramenta · ElevenLabs</div>
+    <div class="ec-title">Voz clonada do Dr. Ivan — como usar</div>
+    <div class="ec-body">A voz do Dr. Ivan já está clonada no ElevenLabs. Para cidades com pouca captação ao vivo (Houston, LA), usar a voz clonada sobre vídeo/imagem estática da cidade. <strong style="color:#fff">Obrigatório</strong>: sempre colocar uma foto do Ivan como thumbnail — imagem branca perde engajamento.</div>
+    <div class="eleven-steps">
+      <div class="eleven-step"><div class="es-n">01</div><div class="es-lbl">Escrever roteiro curto: "Estou aqui em [cidade], nos EUA, dia [X]..."</div></div>
+      <div class="eleven-step"><div class="es-n">02</div><div class="es-lbl">Gerar áudio no ElevenLabs com a voz do Ivan</div></div>
+      <div class="eleven-step"><div class="es-n">03</div><div class="es-lbl">Sobrepor em imagem/vídeo da cidade com foto do Ivan como thumb</div></div>
+    </div>
+  </div>
+
+  <p class="slabel">Tipos de conteúdo a produzir por cidade</p>
+  <div class="cb">
+    <div class="cb-hdr">Banco de conteúdo — Tour Junho EUA</div>
+    <div class="cb-row"><div class="cbc s">Chegada / bastidores</div><div class="cbc">Reels autênticos da chegada em cada cidade. Clínicas, ruas, ambiente médico. Foco em carreira e internacionalização, sem mencionar procedimentos.</div><div class="cbc"><span class="badge b-ok">Orgânico</span></div></div>
+    <div class="cb-row"><div class="cbc s">Encontro c/ Dr. Daniel</div><div class="cbc">Houston: encontro com Dr. Daniel no St. Joseph's Medical Center. Conteúdo de network médico e parceria internacional.</div><div class="cbc"><span class="badge b-ok">Orgânico</span></div></div>
+    <div class="cb-row"><div class="cbc s">Vídeo ElevenLabs</div><div class="cbc">Para cidades sem captador: roteiro curto gerado com a voz clonada + imagem da cidade + foto do Ivan como thumbnail.</div><div class="cbc"><span class="badge b-warn">ElevenLabs</span></div></div>
+    <div class="cb-row"><div class="cbc s">Antes e depois de carreira</div><div class="cbc">Felipe pediu especificamente conteúdo de "antes e depois" do posicionamento profissional do Dr. Ivan. Não de procedimentos.</div><div class="cbc"><span class="badge b-ok">Orgânico</span></div></div>
+    <div class="cb-row"><div class="cbc s">Teaser Tour Agosto</div><div class="cbc">Ao final de cada cidade: "Em agosto, você pode vir comigo." CTA suave para lista de espera do Tour de Agosto.</div><div class="cbc"><span class="badge b-blue">Aquecimento</span></div></div>
+  </div>
+
+  <div class="note warn"><strong>Cuidado jurídico:</strong> Nenhum conteúdo do Tour de Junho deve mencionar procedimentos, atendimentos ou "vaga de paciente". Posicionar sempre como visita de network, observação e parceria médica internacional.</div>
+  <div class="note"><strong>Captação:</strong> Felipe definirá quem vai captar conteúdo presencialmente na viagem. Até lá, preparar orientações detalhadas de roteiro para o captador (enquadramentos, frases-chave, o que evitar). Português + Inglês nas legendas — tanto no vídeo quanto na descrição.</div>
+
+  <div class="c-list-inline" id="cli-sec-junho"></div>
+  <button class="add-c-btn" onclick="openModal('sec-junho','01 · Conteúdo Tour Junho (sem tráfego)')">+ Adicionar comentário</button>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 02 — ESTRATÉGIA COMUM AGOSTO          -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-geo" data-sec-label="02 · Estratégia comum — Tour Agosto">
+  <div class="sh"><span class="snum">02</span><h2 class="stitle">O que é comum nos dois caminhos — Tour Agosto</h2><div class="sdiv"></div></div>
 
   <div style="background:var(--navy);border-radius:12px;padding:20px 24px;color:#fff;margin-bottom:16px;position:relative;overflow:hidden">
     <div style="position:absolute;bottom:-30px;right:-30px;width:100px;height:100px;border-radius:50%;border:2px solid var(--blue3);opacity:.18"></div>
@@ -338,14 +496,14 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
       <div class="tags"><span class="tag">Reels autoridade Dr. Ivan</span><span class="tag">Stories CTA</span><span class="tag">Lead Ads</span><span class="tag">Retargeting</span><span class="tag">Geo por cidade EUA</span><span class="tag">Brasil nacional</span></div>
     </div>
     <div class="channel" style="margin-bottom:0">
-      <div class="ch-top"><div><div class="ch-name">Google Ads + YouTube</div><div class="ch-sub">Captura de demanda ativa</div></div><div class="ch-bud"><div class="amt">R$ 8.400</div><div class="pct">26%</div></div></div>
+      <div class="ch-top"><div><div class="ch-name">Google Ads + YouTube <span class="upd-tag">ver obs.</span></div><div class="ch-sub">Captura de demanda ativa</div></div><div class="ch-bud"><div class="amt">R$ 8.400</div><div class="pct">26%</div></div></div>
       <div class="bar-bg"><div class="bar-fill" style="width:26%"></div></div>
       <div class="tags"><span class="tag">Search: curso dermatologia EUA</span><span class="tag">Busca por Dr. Ivan</span><span class="tag">YouTube pre-roll 30s</span><span class="tag">Display remarketing</span></div>
     </div>
     <div class="channel" style="margin-bottom:0">
-      <div class="ch-top"><div><div class="ch-name">Influencers médicos + PR</div><div class="ch-sub">Permuta e fee</div></div><div class="ch-bud"><div class="amt">R$ 7.350</div><div class="pct">23%</div></div></div>
+      <div class="ch-top"><div><div class="ch-name">Influencers médicos + PR <span class="upd-tag">explorar parceiros Human</span></div><div class="ch-sub">Permuta e fee</div></div><div class="ch-bud"><div class="amt">R$ 7.350</div><div class="pct">23%</div></div></div>
       <div class="bar-bg"><div class="bar-fill" style="width:23%"></div></div>
-      <div class="tags"><span class="tag">Dermatologistas 50k–500k seguidores</span><span class="tag">Médicos BR nos EUA</span><span class="tag">Lives de aquecimento</span><span class="tag">Portais médicos BR</span></div>
+      <div class="tags"><span class="tag">Dermatologistas 50k–500k seguidores</span><span class="tag">Médicos BR nos EUA</span><span class="tag">Outros médicos da Human</span><span class="tag">Portais médicos BR</span></div>
     </div>
     <div class="channel" style="margin-bottom:0">
       <div class="ch-top"><div><div class="ch-name">E-mail marketing</div><div class="ch-sub">Nurturing + urgência de lotes</div></div><div class="ch-bud"><div class="amt">R$ 1.750</div><div class="pct">5%</div></div></div>
@@ -362,32 +520,33 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
     <div class="brow"><div class="brow-lbl">E-mail marketing</div><div class="brow-bg"><div class="brow-fill" style="width:5%;background:#6b9fd4">5%</div></div><div class="brow-val">R$ 1.750</div></div>
     <div style="display:flex;justify-content:space-between;padding-top:9px;border-top:1px solid var(--div);margin-top:5px;font-weight:800;font-size:13px;color:var(--navy)"><span>Total base</span><span style="color:var(--blue)">R$ 31.500</span></div>
   </div>
-  <div class="note"><strong>CRM:</strong> já utilizamos a ferramenta internamente — sem custo adicional. WhatsApp e automações de follow-up estão incluídos na operação da Foco.</div>
+  <div class="note"><strong>CRM:</strong> já utilizamos a ferramenta internamente — sem custo adicional. WhatsApp e automações de follow-up incluídos na operação da Foco.</div>
+  <div class="note warn"><strong>YouTube:</strong> para explorar essa frente, os vídeos precisam ser muito bem captados e roteirizados. Conteúdo de baixa qualidade não performa lá. Avaliar disponibilidade de produção de qualidade antes de alocar budget.</div>
 
   <div class="c-list-inline" id="cli-sec-geo"></div>
-  <button class="add-c-btn" onclick="openModal('sec-geo','01 · Estratégia comum')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-geo','02 · Estratégia comum — Tour Agosto')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 02 — BIFURCAÇÃO                       -->
+<!-- 03 — BIFURCAÇÃO                       -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-mailing" data-sec-label="02 · Bifurcação — confirmação da lista">
-  <div class="sh"><span class="snum">02</span><h2 class="stitle">A confirmação da lista define o caminho</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-mailing" data-sec-label="03 · Bifurcação — confirmação da lista">
+  <div class="sh"><span class="snum">03</span><h2 class="stitle">A confirmação da lista define o caminho</h2><div class="sdiv"></div></div>
 
   <div class="bifurcacao">
     <div class="bif-label">Ponto de decisão</div>
     <div class="bif-title">Qual é o perfil real dos 5.887 contactáveis?</div>
-    <div class="bif-body">A estratégia se bifurca a partir da confirmação do perfil da base. Os números de faturamento, a abordagem da lista e o mix de canais mudam significativamente dependendo da resposta.</div>
+    <div class="bif-body">A estratégia se bifurca a partir da confirmação do perfil da base. Os números de faturamento, a abordagem da lista e o mix de canais mudam significativamente dependendo da resposta. <strong style="color:var(--blue3)">Pendência crítica:</strong> confirmar se de fato 35% da lista são clientes dos cursos do Dr. Ivan.</div>
     <div class="bif-paths">
       <div class="bif-path a">
         <div class="bif-path-lbl">Caminho A</div>
         <div class="bif-path-title">Lista de pacientes de clínica estética</div>
-        <div class="bif-path-desc">Base usada como semente para look-alike no Meta e canal de indicação indireta. Não abordados diretamente como compradores. Receita vem apenas do tráfego pago.</div>
+        <div class="bif-path-desc">Base usada como semente para look-alike no Meta. Cruzar LAL com cargo "médico" para aproximar do público comprador. Não abordados diretamente. Receita vem do tráfego pago.</div>
       </div>
       <div class="bif-path b">
         <div class="bif-path-lbl">Caminho B</div>
         <div class="bif-path-title">Lista de médicos de alto padrão</div>
-        <div class="bif-path-desc">Base trabalhada diretamente. 35% já compraram curso do Dr. Ivan (base quente = 2.060). 65% são o público certo mas sem histórico de compra (base fria = 3.827). Maior potencial de faturamento.</div>
+        <div class="bif-path-desc">Base trabalhada diretamente. 35% já compraram curso do Dr. Ivan (base quente = 2.060) — <strong>a confirmar</strong>. 65% público certo sem histórico (base fria = 3.827). Maior potencial de faturamento.</div>
       </div>
     </div>
   </div>
@@ -408,25 +567,27 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
   <div class="ab-cols">
     <div class="ab-col a">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho A</span><span class="ab-col-title">Como usar a lista</span></div>
-      <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.6;margin-bottom:9px"><strong>Look-alike no Meta:</strong> upload como Custom Audience. O algoritmo encontra perfis parecidos — incluindo médicos que frequentam o universo estético. Melhor semente disponível para o público americano.</p>
-      <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.6"><strong>Indicação indireta:</strong> mensagem via WhatsApp/e-mail para os 1.914 com Paid acima de US$1k: "Seu médico vai estar em [cidade] — compartilhe com ele." Canal de boca a boca, sem custo.</p>
+      <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.6;margin-bottom:9px"><strong>Look-alike no Meta:</strong> upload como Custom Audience. Cruzar LAL com cargo "médico/dermatologista" para aproximar do público real comprador — não só perfis parecidos com pacientes estéticos.</p>
+      <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.6"><strong>Indicação indireta:</strong> mensagem via WhatsApp/e-mail para os 1.914 com Paid acima de US$1k: "Seu médico vai estar em [cidade] — compartilhe com ele." <em>Sujeito a confirmação jurídica.</em></p>
     </div>
     <div class="ab-col b">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho B</span><span class="ab-col-title">Como usar a lista</span></div>
-      <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.6;margin-bottom:9px"><strong>Base quente (2.060 — 35%):</strong> abordagem direta com oferta. Conversão estimada de 8–15%. Ticket médio US$1.679. Mix puxado para Black (45%). WhatsApp e e-mail são canais de conversão direta.</p>
-      <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.6"><strong>Base fria (3.827 — 65%):</strong> nurturing antes da oferta. 3 mensagens de conteúdo antes da oferta direta. Conversão estimada de 2–5%. Ticket médio US$1.342. Entrada pelo Diamond (50%).</p>
+      <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.6;margin-bottom:9px"><strong>Base quente (2.060 — 35%):</strong> abordagem direta com oferta. Conversão estimada de 8–15%. Ticket médio US$1.679. Mix puxado para Black (45%). WhatsApp e e-mail são canais de conversão direta. <em>Confirmar percentual real.</em></p>
+      <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.6"><strong>Base fria (3.827 — 65%):</strong> 3 mensagens de conteúdo antes da oferta. Conversão estimada de 2–5%. Ticket médio US$1.342. Entrada pelo Diamond (50%).</p>
     </div>
   </div>
 
+  <div class="note warn"><strong>⚠ Jurídico — disparos nos EUA:</strong> Antes de qualquer disparo via WhatsApp ou e-mail para a base americana, confirmar a questão legal não apenas na lei, mas na prática (fóruns de usuários, casos reais). Risco jurídico mais alto no mercado norte-americano. Não disparar sem essa confirmação.</div>
+
   <div class="c-list-inline" id="cli-sec-mailing"></div>
-  <button class="add-c-btn" onclick="openModal('sec-mailing','02 · Bifurcação — confirmação da lista')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-mailing','03 · Bifurcação — confirmação da lista')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 03 — META ADS — DIFERENÇAS            -->
+<!-- 04 — META ADS                         -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-meta" data-sec-label="03 · Meta Ads — diferenças por caminho">
-  <div class="sh"><span class="snum">03</span><h2 class="stitle">Campanhas no Meta Ads — o que muda</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-meta" data-sec-label="04 · Meta Ads — diferenças por caminho">
+  <div class="sh"><span class="snum">04</span><h2 class="stitle">Campanhas no Meta Ads — o que muda</h2><div class="sdiv"></div></div>
 
   <table class="adt" style="margin-bottom:16px">
     <caption>Ad Sets comuns — Awareness (R$4k) + Consideração (R$5k) + Conversão (R$5k)</caption>
@@ -444,194 +605,183 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
     <div class="ab-col a">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho A</span><span class="ab-col-title">Ad Sets específicos</span></div>
       <div style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:4px">Custom Audience — mailing completo</div>
-      <div style="font-size:12px;font-weight:600;color:var(--navy2);margin-bottom:10px;line-height:1.5">Upload dos 6.577 registros. Uso como <strong>semente de look-alike</strong>, não abordagem direta.</div>
-      <div style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:4px">Look-alike 1% da base mailing</div>
-      <div style="font-size:12px;font-weight:600;color:var(--navy2);line-height:1.5">Principal alavanca para encontrar médicos americanos sem lista própria.</div>
+      <div style="font-size:12px;font-weight:600;color:var(--navy2);margin-bottom:10px;line-height:1.5">Upload dos 6.577 registros. Uso como <strong>semente de look-alike</strong>. Cruzar LAL com cargo médico/dermatologista para refinar o público.</div>
+      <div style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:4px">Look-alike 1% cruzado com cargo médico</div>
+      <div style="font-size:12px;font-weight:600;color:var(--navy2);line-height:1.5">Principal alavanca para encontrar médicos americanos. Cargo médico como filtro aproxima o LAL do público real comprador.</div>
     </div>
     <div class="ab-col b">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho B</span><span class="ab-col-title">Ad Sets específicos</span></div>
       <div style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:4px">Custom Audience — base quente (2.060)</div>
-      <div style="font-size:12px;font-weight:600;color:var(--navy2);margin-bottom:10px;line-height:1.5">Abordagem direta com oferta. Objetivo: Conversão. Criativos para quem já conhece o Dr. Ivan.</div>
+      <div style="font-size:12px;font-weight:600;color:var(--navy2);margin-bottom:10px;line-height:1.5">Abordagem direta com oferta. Objetivo: Conversão. Criativos para quem já conhece o Dr. Ivan. <em>Confirmar % real de ex-compradores.</em></div>
       <div style="font-size:12px;font-weight:800;color:var(--navy);margin-bottom:4px">Custom Audience — base fria (3.827)</div>
       <div style="font-size:12px;font-weight:600;color:var(--navy2);line-height:1.5">Objetivo: Lead Ads primeiro. Nurturing antes da oferta. Look-alike separado de cada subgrupo.</div>
     </div>
   </div>
 
   <div class="c-list-inline" id="cli-sec-meta"></div>
-  <button class="add-c-btn" onclick="openModal('sec-meta','03 · Meta Ads — diferenças por caminho')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-meta','04 · Meta Ads — diferenças por caminho')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 04 — CRIATIVOS E ABORDAGEM            -->
+<!-- 05 — CRIATIVOS                        -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-criativos" data-sec-label="04 · Criativos e abordagem da lista">
-  <div class="sh"><span class="snum">04</span><h2 class="stitle">Criativos e abordagem da base — o que muda</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-criativos" data-sec-label="05 · Criativos e abordagem da lista">
+  <div class="sh"><span class="snum">05</span><h2 class="stitle">Criativos e abordagem da base — o que muda</h2><div class="sdiv"></div></div>
 
   <p class="slabel">Criativos comuns — todas as fases e caminhos</p>
   <div class="cb" style="margin-bottom:16px">
     <div class="cb-hdr">Comum — Fase 1 Awareness + Fase 2 Consideração + Fase 3 Conversão</div>
-    <div class="cb-row"><div class="cbc s">Reels autoridade</div><div class="cbc">Dr. Ivan sobre internacionalização da medicina estética. Sem mencionar procedimentos. Foco em carreira e expansão de mercado.</div><div class="cbc"><span class="badge b-blue">Ambos</span></div></div>
+    <div class="cb-row"><div class="cbc s">Reels autoridade</div><div class="cbc">Dr. Ivan sobre internacionalização da medicina estética. Sem mencionar procedimentos. Foco em carreira e expansão. Português + Inglês em legendas e descrição.</div><div class="cbc"><span class="badge b-blue">Ambos</span></div></div>
     <div class="cb-row"><div class="cbc s">Vídeo da agenda</div><div class="cbc">60s com 7 módulos, 3 speakers, 4 cidades. "Uma rota de autoridade médica." CTA: Ver programa completo.</div><div class="cbc"><span class="badge b-blue">Ambos</span></div></div>
-    <div class="cb-row"><div class="cbc s">Dr. Ivan nos EUA</div><div class="cbc">Conteúdo nativo a partir de 22/mai: chegada em Houston, clínicas, encontro com Dr. Daniel. Reels autênticos.</div><div class="cbc"><span class="badge b-ok">Orgânico+boost</span></div></div>
+    <div class="cb-row"><div class="cbc s">Dr. Ivan nos EUA (junho)</div><div class="cbc">Conteúdo captado no Tour de Junho: chegada, clínicas, network. Usado como prova social no aquecimento de agosto.</div><div class="cbc"><span class="badge b-ok">Orgânico+boost</span></div></div>
+    <div class="cb-row"><div class="cbc s">Áudio ElevenLabs</div><div class="cbc">Voz clonada do Dr. Ivan em roteiros curtos. Sempre com foto do Ivan como thumbnail. Pode entrar em cadência de mensagens como áudio.</div><div class="cbc"><span class="badge b-warn">ElevenLabs</span></div></div>
     <div class="cb-row"><div class="cbc s">Urgência de vagas</div><div class="cbc">"X vagas em [cidade]." Countdown visual. Preço Lote 03 com risco do Lote 01 esgotado.</div><div class="cbc"><span class="badge b-warn">Retargeting</span></div></div>
   </div>
 
   <div class="ab-cols">
     <div class="ab-col a">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho A</span><span class="ab-col-title">Abordagem da lista</span></div>
-      <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.65;margin-bottom:9px"><strong>WhatsApp (1.914 de alto ticket):</strong><br>"Oi [nome]! O Dr. Ivan Rollemberg vai estar em [cidade] no dia [data] com um programa internacional de medicina estética. Se você tem um médico ou dermatologista de confiança, vale compartilhar: [link]. Abraço!"</p>
+      <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.65;margin-bottom:9px"><strong>WhatsApp (1.914 de alto ticket):</strong><br>"Oi [nome]! O Dr. Ivan Rollemberg vai estar em [cidade] no dia [data] com um programa internacional de medicina estética. Se você tem um médico ou dermatologista de confiança, vale compartilhar: [link]. Abraço!"<br><span style="font-size:11px;color:#EA580C">⚠ Sujeito a confirmação jurídica</span></p>
       <p style="font-size:13px;font-weight:600;color:var(--a-text);line-height:1.65"><strong>E-mail (4.242):</strong><br>Assunto: "Seu médico vai adorar saber disso"<br>Tom: indicação informal, não oferta direta.</p>
     </div>
     <div class="ab-col b">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho B</span><span class="ab-col-title">Abordagem da lista</span></div>
-      <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.65;margin-bottom:9px"><strong>WhatsApp quentes (2.060):</strong><br>"Dr. [nome], as inscrições do programa internacional estão abertas. Lote 01 com condições especiais por mais [X] dias. [link]" — oferta direta.</p>
+      <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.65;margin-bottom:9px"><strong>WhatsApp quentes (2.060):</strong><br>"Dr. [nome], as inscrições do programa internacional estão abertas. Lote 01 com condições especiais por mais [X] dias. [link]" — oferta direta.<br><span style="font-size:11px;color:#EA580C">⚠ Sujeito a confirmação jurídica</span></p>
       <p style="font-size:13px;font-weight:600;color:var(--b-text);line-height:1.65"><strong>WhatsApp frios (3.827):</strong><br>Sequência de 3 mensagens de conteúdo (internacionalização, posicionamento premium, visão do Dr. Ivan) antes da oferta direta.</p>
     </div>
   </div>
 
+  <div class="note"><strong>Identidade visual:</strong> O Dr. Ivan tem logo com a letra R e detalhes acima. Pegar essa identidade com Alexis e inserir de forma sutil nos materiais. Atualizar linktree e perfis com os links corretos.</div>
+
   <div class="c-list-inline" id="cli-sec-criativos"></div>
-  <button class="add-c-btn" onclick="openModal('sec-criativos','04 · Criativos e abordagem da lista')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-criativos','05 · Criativos e abordagem da lista')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 05 — ADAPTAÇÕES TÉCNICAS (COMUM)      -->
+<!-- 06 — ADAPTAÇÕES TÉCNICAS              -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-adaptacoes" data-sec-label="05 · Adaptações técnicas Meta BR nos EUA">
-  <div class="sh"><span class="snum">05</span><h2 class="stitle">Conta Meta Brasil nos EUA — adaptações técnicas</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-adaptacoes" data-sec-label="06 · Adaptações técnicas Meta BR nos EUA">
+  <div class="sh"><span class="snum">06</span><h2 class="stitle">Conta Meta Brasil nos EUA — adaptações técnicas</h2><div class="sdiv"></div></div>
   <p style="font-size:12px;font-weight:600;color:var(--navy2);margin-bottom:12px;opacity:.8">Estas configurações são iguais nos dois caminhos.</p>
   <ul class="checklist">
+    <li><div class="ico ico-pend">!</div><div><span class="cs">Pixel e tag de conversão na página do evento</span>Verificar se a página do evento já tem o pixel instalado e os eventos de conversão configurados (ViewContent, Lead, Purchase). Muito provável que ainda não tenha.</div></li>
     <li><div class="ico ico-ok">✓</div><div><span class="cs">Geolocalização por Ad Set</span>OK sem mudança na conta. País/estado/cidade configurados dentro de cada conjunto de anúncios.</div></li>
     <li><div class="ico ico-ok">✓</div><div><span class="cs">Pagamento em BRL</span>Cartão brasileiro funciona normalmente. Entrega nos EUA não é afetada — custo oscila com o câmbio.</div></li>
     <li><div class="ico ico-ok">✓</div><div><span class="cs">Upload da base como Custom Audience</span>CSV com e-mails + celulares. Meta faz o match com perfis americanos sem configuração especial.</div></li>
-    <li><div class="ico ico-ok">✓</div><div><span class="cs">Pixel e domínio</span>Sem alteração. Pixel em domínio brasileiro registra eventos de usuários nos EUA. Verificar: ViewContent, Lead, Purchase.</div></li>
+    <li><div class="ico ico-pend">!</div><div><span class="cs">Públicos de interesse — criar antes de subir</span>Já deixar os públicos de interesses criados na conta antes de subir as campanhas. Estudar a biblioteca de anúncios nível USA (imersões médicas) para entender padrão de criativos usados por lá.</div></li>
     <li><div class="ico ico-warn">!</div><div><span class="cs">Criativos com linguagem clínica</span>Meta americano reprova anúncios com procedimentos ou resultados prometidos. Usar: "formação", "imersão médica", "expansão de carreira". Nunca nomear procedimentos no copy.</div></li>
-    <li><div class="ico ico-warn">!</div><div><span class="cs">Interesses de saúde restritos nos EUA</span>"Dermatologia" pode estar indisponível. Solução: Custom Audience + Look-alike como base. Complementar com interesses adjacentes (empreendedorismo médico, congressos de saúde).</div></li>
+    <li><div class="ico ico-warn">!</div><div><span class="cs">Interesses de saúde restritos nos EUA</span>"Dermatologia" pode estar indisponível. Solução: Custom Audience + Look-alike como base. Interesses adjacentes: empreendedorismo médico, congressos de saúde.</div></li>
     <li><div class="ico ico-warn">!</div><div><span class="cs">Velocidade da landing page nos EUA</span>Servidor brasileiro pode ter latência alta. Testar com GTmetrix (localização EUA). Se necessário, ativar Cloudflare CDN.</div></li>
     <li><div class="ico ico-neu">→</div><div><span class="cs">Fuso horário</span>Conta usa Brasília (UTC-3). Recomendação: desativar ad scheduling — algoritmo otimiza por entrega 24h.</div></li>
   </ul>
 
   <div class="c-list-inline" id="cli-sec-adaptacoes"></div>
-  <button class="add-c-btn" onclick="openModal('sec-adaptacoes','05 · Adaptações técnicas Meta BR nos EUA')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-adaptacoes','06 · Adaptações técnicas Meta BR nos EUA')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 06 — CALENDÁRIO (COMUM)               -->
+<!-- 07 — CALENDÁRIO ATUALIZADO            -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-calendario" data-sec-label="06 · Calendário de ativação">
-  <div class="sh"><span class="snum">06</span><h2 class="stitle">Calendário de ativação — igual nos dois caminhos</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-calendario" data-sec-label="07 · Calendário de ativação">
+  <div class="sh"><span class="snum">07</span><h2 class="stitle">Calendário de ativação <span class="upd-tag">✦ atualizado</span></h2><div class="sdiv"></div></div>
   <table style="width:100%;border-collapse:collapse;font-size:13px">
-    <colgroup>
-      <col style="width:36px">
-      <col style="width:130px">
-      <col style="width:200px">
-      <col>
-    </colgroup>
+    <colgroup><col style="width:36px"><col style="width:140px"><col style="width:190px"><col></colgroup>
     <tbody>
-      <!-- linha 1 -->
       <tr>
-        <td style="vertical-align:top;padding:0 0 24px 0">
-          <div style="width:13px;height:13px;border-radius:50%;background:var(--blue);border:2px solid var(--blue);margin-top:3px;position:relative">
-            <div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div);bottom:0"></div>
-          </div>
-        </td>
-        <td style="vertical-align:top;padding:0 14px 24px 8px">
-          <div style="display:inline-block;background:var(--badge-bg);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">15–21 mai<br>Fase 0</div>
-        </td>
+        <td style="vertical-align:top;padding:0 0 24px 0"><div style="width:13px;height:13px;border-radius:50%;background:var(--blue);border:2px solid var(--blue);margin-top:3px;position:relative"><div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div></div></td>
+        <td style="vertical-align:top;padding:0 14px 24px 8px"><div style="display:inline-block;background:var(--badge-bg);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">15–21 mai<br>Fase 0</div></td>
         <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Preparação</td>
-        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Verificar pixel e eventos de conversão. Upload da base mailing como Custom Audience. Criar look-alike 1% e 2%. Produzir criativos de awareness (mín. 3 vídeos). Iniciar outreach com influencers. Testar velocidade da landing page para IPs americanos. Definir caminho conforme confirmação da lista.</td>
+        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Reunião com Alexis (amanhã). Verificar pixel e eventos de conversão na página. Upload da base como Custom Audience. Criar look-alike 1% cruzado com cargo médico. Criar públicos de interesse na conta antes de subir. Produzir criativos de awareness (mín. 3 vídeos). Outreach influencers + outros médicos da Human. Confirmar questão jurídica de disparos. Definir captador para Tour de Junho.</td>
       </tr>
-      <!-- linha 2 -->
       <tr>
-        <td style="vertical-align:top;padding:0 0 24px 0">
-          <div style="width:13px;height:13px;border-radius:50%;background:var(--blue);border:2px solid var(--blue);margin-top:3px;position:relative">
-            <div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div>
-          </div>
-        </td>
-        <td style="vertical-align:top;padding:0 14px 24px 8px">
-          <div style="display:inline-block;background:var(--badge-bg);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">22–28 mai<br>Fase 1</div>
-        </td>
-        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Awareness +<br>abertura Lote 01</td>
-        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Subir campanhas no Meta (Brasil + 4 cidades EUA). Ativar Google Search. Disparar e-mail de abertura. Urgência: "Lote 01 — apenas 10 vagas por cidade". Iniciar abordagem da lista conforme o caminho confirmado. Monitorar CPC e CPL nos primeiros 3 dias.</td>
+        <td style="vertical-align:top;padding:0 0 24px 0"><div style="width:13px;height:13px;border-radius:50%;background:var(--blue);border:2px solid var(--blue);margin-top:3px;position:relative"><div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div></div></td>
+        <td style="vertical-align:top;padding:0 14px 24px 8px"><div style="display:inline-block;background:var(--badge-bg);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">22 mai–09 jun<br>Tour Junho</div></td>
+        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Conteúdo orgânico<br>Aquecimento agosto<br><span class="badge b-update" style="font-size:9px">sem tráfego pago</span></td>
+        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Captar conteúdo autentico em cada cidade (Houston 01/jun, Miami 03/jun, LA 06/jun, Orlando 09/jun). Reels de chegada, clínicas, network. Voz ElevenLabs para cidades sem captador. Inserir teaser do Tour de Agosto ao final de cada cidade. Estudar biblioteca de anúncios USA nesse período.</td>
       </tr>
-      <!-- linha 3 -->
       <tr>
-        <td style="vertical-align:top;padding:0 0 24px 0">
-          <div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative">
-            <div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div>
-          </div>
-        </td>
-        <td style="vertical-align:top;padding:0 14px 24px 8px">
-          <div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">29 mai–04 jun<br>Fase 2</div>
-        </td>
-        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Consideração +<br>Lote 02 +<br>Dr. Ivan nos EUA</td>
-        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Virar budget para conversão. Ativar retargeting. Abrir Lote 02. Conteúdo nativo com Dr. Ivan nos EUA (chegada em Houston, visitas, encontro com Dr. Daniel). Lives de aquecimento. Segunda sequência de e-mail.</td>
+        <td style="vertical-align:top;padding:0 0 24px 0"><div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative"><div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div></div></td>
+        <td style="vertical-align:top;padding:0 14px 24px 8px"><div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">10–20 jun<br>Pré-agosto</div></td>
+        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Abertura comercial<br>Tour Agosto +<br>Lote 01</td>
+        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Subir campanhas no Meta (Brasil + 4 cidades EUA). Ativar Google Search. Disparar e-mail de abertura. Urgência: "Lote 01 — apenas 10 vagas por cidade". Iniciar abordagem da lista conforme o caminho confirmado (sujeito a confirmação jurídica). Monitorar CPC e CPL nos primeiros 3 dias.</td>
       </tr>
-      <!-- linha 4 -->
       <tr>
-        <td style="vertical-align:top;padding:0 0 24px 0">
-          <div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative">
-            <div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div>
-          </div>
-        </td>
-        <td style="vertical-align:top;padding:0 14px 24px 8px">
-          <div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">05–09 jun<br>Fase 3</div>
-        </td>
-        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Urgência final +<br>Lote 03</td>
+        <td style="vertical-align:top;padding:0 0 24px 0"><div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative"><div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div></div></td>
+        <td style="vertical-align:top;padding:0 14px 24px 8px"><div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">21 jun–31 jul<br>Aquecimento</div></td>
+        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Consideração +<br>Lote 02 +<br>Lives</td>
+        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Virar budget para conversão. Ativar retargeting. Abrir Lote 02. Lives de aquecimento — verificar disponibilidade do Dr. Ivan para lives (pode estar em viagem). Segunda sequência de e-mail. Usar conteúdo do Tour de Junho como prova social.</td>
+      </tr>
+      <tr>
+        <td style="vertical-align:top;padding:0 0 24px 0"><div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative"><div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div></div></td>
+        <td style="vertical-align:top;padding:0 14px 24px 8px"><div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">01–14 ago<br>Urgência final</div></td>
+        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Lote 03 +<br>Encerramento</td>
         <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Stories diários com contador de vagas. E-mail diário (máx. 1/dia). WhatsApp com countdown nas últimas 48h. Reforço Google Search com termos de marca. 100% do budget em conversão e retargeting.</td>
       </tr>
-      <!-- linha 5 -->
       <tr>
-        <td style="vertical-align:top;padding:0 0 24px 0">
-          <div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative">
-            <div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div>
-          </div>
-        </td>
-        <td style="vertical-align:top;padding:0 14px 24px 8px">
-          <div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">01–09 jun<br>Durante</div>
-        </td>
-        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Conteúdo ao vivo +<br>urgência cidades<br>seguintes</td>
-        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Reels e stories de cada cidade. Depoimentos rápidos de participantes (15s). Ativo para urgência das próximas datas e para futuras edições.</td>
+        <td style="vertical-align:top;padding:0 0 24px 0"><div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px;position:relative"><div style="position:absolute;left:5px;top:15px;width:2px;height:calc(100% + 9px);background:var(--div)"></div></div></td>
+        <td style="vertical-align:top;padding:0 14px 24px 8px"><div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">16–22 ago<br>Durante</div></td>
+        <td style="vertical-align:top;padding:0 20px 24px 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Tour Agosto<br>Conteúdo ao vivo</td>
+        <td style="vertical-align:top;padding:0 0 24px 0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Reels e stories de cada cidade. Depoimentos rápidos de participantes (15s). Ativo para urgência das próximas datas. Dash em tempo real para acompanhar ROAS por canal e cidade e corrigir gargalos rapidamente.</td>
       </tr>
-      <!-- linha 6 — sem linha vertical abaixo -->
       <tr>
-        <td style="vertical-align:top;padding:0">
-          <div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px"></div>
-        </td>
-        <td style="vertical-align:top;padding:0 14px 0 8px">
-          <div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">10 jun+<br>Pós</div>
-        </td>
+        <td style="vertical-align:top;padding:0"><div style="width:13px;height:13px;border-radius:50%;background:#fff;border:2px solid var(--blue);margin-top:3px"></div></td>
+        <td style="vertical-align:top;padding:0 14px 0 8px"><div style="display:inline-block;background:var(--bg);color:var(--navy2);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;line-height:1.5">23 ago+<br>Pós</div></td>
         <td style="vertical-align:top;padding:0 20px 0 0;font-weight:800;color:var(--navy);font-size:13px;line-height:1.5">Prova social e<br>nurturing</td>
-        <td style="vertical-align:top;padding:0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Compilar depoimentos e números. Relatório ROAS por canal e cidade. Nurturing da base de leads para próximas edições.</td>
+        <td style="vertical-align:top;padding:0;font-weight:600;color:var(--navy2);line-height:1.6;font-size:13px">Compilar depoimentos e números. Relatório ROAS por canal e cidade via dashboard em tempo real. Nurturing da base de leads para próximas edições.</td>
       </tr>
     </tbody>
   </table>
 
   <div class="c-list-inline" id="cli-sec-calendario"></div>
-  <button class="add-c-btn" onclick="openModal('sec-calendario','06 · Calendário de ativação')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-calendario','07 · Calendário de ativação')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 07 — CIDADES (COMUM)                  -->
+<!-- 08 — STRIPE CONNECT                   -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-cidades" data-sec-label="07 · Budget por cidade">
-  <div class="sh"><span class="snum">07</span><h2 class="stitle">Budget por cidade — Meta Ads EUA</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-stripe" data-sec-label="08 · Pagamento — Stripe Connect">
+  <div class="sh"><span class="snum">08</span><h2 class="stitle">Pagamento Tour Agosto — Stripe Connect <span class="upd-tag">✦ novo</span></h2><div class="sdiv"></div></div>
+
+  <div class="stripe-card">
+    <div class="sc-title">💳 Stripe Connect — split automático</div>
+    <div class="sc-body">O link de pagamento do Tour de Agosto será via <strong>Stripe Connect</strong>, que faz o split automático do valor entre o Dr. Ivan e a Foco Marketing no momento do pagamento. Não precisa de repasse manual.</div>
+  </div>
+
+  <ul class="checklist">
+    <li><div class="ico ico-pend">!</div><div><span class="cs">Configurar Stripe Connect</span>Responsabilidade: Thiago / Marquinhos. Definir percentual de split (Ivan % + Foco %). Testar com transação de valor pequeno antes de subir o link de venda real.</div></li>
+    <li><div class="ico ico-pend">!</div><div><span class="cs">Construir link de pagamento</span>Link com lotes (Lote 01, 02, 03) e valores por ticket (Platinum, Diamond, Black). Deve refletir as datas de 16, 18, 20, 22 de agosto.</div></li>
+    <li><div class="ico ico-pend">!</div><div><span class="cs">Alterar vídeo, PDF e landing page</span>Atualizar todos os materiais com as novas datas de agosto. Pegar acesso com Alexis.</div></li>
+    <li><div class="ico ico-ok">✓</div><div><span class="cs">Stripe Connect já suporta esse formato</span>Ana confirmou na reunião: o Stripe Connect faz a divisão dentro da plataforma direto, sem necessidade de ferramenta adicional.</div></li>
+  </ul>
+
+  <div class="c-list-inline" id="cli-sec-stripe"></div>
+  <button class="add-c-btn" onclick="openModal('sec-stripe','08 · Pagamento — Stripe Connect')">+ Adicionar comentário</button>
+</div>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 09 — CIDADES                          -->
+<!-- ══════════════════════════════════════ -->
+<div class="section" id="sec-cidades" data-sec-label="09 · Budget por cidade">
+  <div class="sh"><span class="snum">09</span><h2 class="stitle">Budget por cidade — Meta Ads EUA (Tour Agosto)</h2><div class="sdiv"></div></div>
   <div class="cgrid">
-    <div class="ccrd"><div class="cname">Miami <span class="badge b-navy">Foco principal</span></div><div class="cdate">03 jun · Coral Gables, FL</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 4.900 (35%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">436 contactáveis</span></div><div class="crow"><span>Geo targeting</span><span class="crval">Miami-Dade + Broward + Palm Beach</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">60–70 pessoas</span></div></div>
-    <div class="ccrd"><div class="cname">Orlando <span class="badge b-ok">Maior base</span></div><div class="cdate">09 jun · International Drive, FL</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 2.800 (20%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">1.767 contactáveis</span></div><div class="crow"><span>Geo targeting</span><span class="crval">Orange + Osceola + Polk counties</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div></div>
-    <div class="ccrd"><div class="cname">Houston</div><div class="cdate">01 jun · St. Joseph's Medical Center, TX</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 2.800 (20%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">2 — tráfego puro</span></div><div class="crow"><span>Geo targeting</span><span class="crval">Harris County + The Woodlands</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div></div>
-    <div class="ccrd"><div class="cname">Los Angeles</div><div class="cdate">06 jun · Hilton LAX, CA</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 3.500 (25%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">4 — tráfego puro</span></div><div class="crow"><span>Geo targeting</span><span class="crval">LA County + Orange County</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div></div>
+    <div class="ccrd"><div class="cname">Miami <span class="badge b-navy">Foco principal</span></div><div class="cdate">Tour Agosto · Coral Gables, FL</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 4.900 (35%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">436 contactáveis</span></div><div class="crow"><span>Geo targeting</span><span class="crval">Miami-Dade + Broward + Palm Beach</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">60–70 pessoas</span></div></div>
+    <div class="ccrd"><div class="cname">Orlando <span class="badge b-ok">Maior base</span></div><div class="cdate">Tour Agosto · International Drive, FL</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 2.800 (20%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">1.767 contactáveis</span></div><div class="crow"><span>Geo targeting</span><span class="crval">Orange + Osceola + Polk counties</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div></div>
+    <div class="ccrd"><div class="cname">Houston</div><div class="cdate">Tour Agosto · TX</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 2.800 (20%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">2 — tráfego puro</span></div><div class="crow"><span>Geo targeting</span><span class="crval">Harris County + The Woodlands</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div></div>
+    <div class="ccrd"><div class="cname">Los Angeles</div><div class="cdate">Tour Agosto · Hilton LAX, CA</div><div class="crow"><span>Budget Meta Ads</span><span class="crval">R$ 3.500 (25%)</span></div><div class="crow"><span>Base mailing</span><span class="crval">4 — tráfego puro</span></div><div class="crow"><span>Geo targeting</span><span class="crval">LA County + Orange County</span></div><div class="crow"><span>Meta de inscrições</span><span class="crval">40–50 pessoas</span></div></div>
   </div>
   <div class="note" style="margin-top:12px"><strong>Brasil:</strong> R$ 1.400 do Meta para médicos com renda alta e histórico de viagens internacionais. Criativo: "Venha para os EUA com a gente".</div>
 
   <div class="c-list-inline" id="cli-sec-cidades"></div>
-  <button class="add-c-btn" onclick="openModal('sec-cidades','07 · Budget por cidade')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-cidades','09 · Budget por cidade')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 08 — FATURAMENTO A vs B               -->
+<!-- 10 — FATURAMENTO                      -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-faturamento" data-sec-label="08 · Estimativa de faturamento A vs B">
-  <div class="sh"><span class="snum">08</span><h2 class="stitle">Estimativa de faturamento — Caminho A vs B</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-faturamento" data-sec-label="10 · Estimativa de faturamento A vs B">
+  <div class="sh"><span class="snum">10</span><h2 class="stitle">Estimativa de faturamento — Caminho A vs B</h2><div class="sdiv"></div></div>
+
+  <div class="note warn" style="margin-bottom:16px"><strong>⚠ Validar com o time:</strong> Confirmar se essas projeções fazem sentido e se há força de marca suficiente para sustentar essa conversão para além do tráfego pago. Os números do Caminho B dependem da confirmação do perfil da lista.</div>
 
   <div class="ab-cols" style="margin-bottom:16px">
     <div class="ab-col a">
@@ -642,28 +792,14 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
         <div class="fat-card destaque"><div class="fat-label">Realista · 200 insc. ←</div><div class="fat-val blue">US$ 288k</div><div class="fat-brl">≈ R$ 1,67M</div><div class="fat-roi">ROI tráfego: <strong>48x</strong></div></div>
         <div class="fat-card"><div class="fat-label">Otimista · 260 insc.</div><div class="fat-val">US$ 375k</div><div class="fat-brl">≈ R$ 2,18M</div><div class="fat-roi">ROI tráfego: <strong>62x</strong></div></div>
       </div>
-      <div style="background:#fff;border-radius:8px;padding:11px 13px;margin-top:10px;font-size:12px;font-weight:600;color:var(--navy2)">
-        <div style="font-weight:800;color:var(--navy);margin-bottom:5px">Mix realista (200 insc.)</div>
-        <div>Platinum 20% → US$ 28.972</div>
-        <div>Diamond 50% → US$ 107.210</div>
-        <div>Black 30% → US$ 149.940</div>
-        <div style="margin-top:5px;padding-top:5px;border-top:1px solid var(--div);font-weight:800;color:var(--blue)">Total: US$ 286.122</div>
-      </div>
     </div>
     <div class="ab-col b">
       <div class="ab-col-hdr"><span class="ab-col-badge">Caminho B</span><span class="ab-col-title">Lista de médicos</span></div>
-      <p style="font-size:12px;font-weight:600;color:var(--b-text);margin-bottom:12px;line-height:1.5">Receita do tráfego pago + conversão direta da lista (quente 8–15% + fria 2–5%). Números combinados.</p>
+      <p style="font-size:12px;font-weight:600;color:var(--b-text);margin-bottom:12px;line-height:1.5">Receita do tráfego pago + conversão direta da lista (quente 8–15% + fria 2–5%). Sujeito à confirmação do perfil real da base.</p>
       <div style="display:flex;flex-direction:column;gap:8px">
         <div class="fat-card"><div class="fat-label">Conservador · 442 insc. total</div><div class="fat-val">US$ 669k</div><div class="fat-brl">≈ R$ 3,88M</div><div class="fat-roi">ROI tráfego: <strong>111x</strong></div></div>
         <div class="fat-card" style="border:2px solid var(--b-border)"><div class="fat-label" style="color:#16A34A">Realista · 581 insc. total ←</div><div class="fat-val green">US$ 883k</div><div class="fat-brl">≈ R$ 5,12M</div><div class="fat-roi">ROI tráfego: <strong>146x</strong></div></div>
         <div class="fat-card"><div class="fat-label">Otimista · 700 insc. total</div><div class="fat-val">US$ 1,06M</div><div class="fat-brl">≈ R$ 6,17M</div><div class="fat-roi">ROI tráfego: <strong>176x</strong></div></div>
-      </div>
-      <div style="background:#fff;border-radius:8px;padding:11px 13px;margin-top:10px;font-size:12px;font-weight:600;color:var(--navy2)">
-        <div style="font-weight:800;color:var(--navy);margin-bottom:5px">Breakdown realista lista (381 insc.)</div>
-        <div>Quente (247): Plat+Diam+Black → US$ 414.500</div>
-        <div>Fria (134): Plat+Diam+Black → US$ 181.423</div>
-        <div>Tráfego pago (200 insc.) → US$ 286.122</div>
-        <div style="margin-top:5px;padding-top:5px;border-top:1px solid var(--div);font-weight:800;color:#15803D">Total combinado: US$ 882.045</div>
       </div>
     </div>
   </div>
@@ -678,19 +814,21 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
   </div>
 
   <div class="c-list-inline" id="cli-sec-faturamento"></div>
-  <button class="add-c-btn" onclick="openModal('sec-faturamento','08 · Estimativa de faturamento A vs B')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-faturamento','10 · Estimativa de faturamento A vs B')">+ Adicionar comentário</button>
 </div>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 09 — KPIs                             -->
+<!-- 11 — KPIs                             -->
 <!-- ══════════════════════════════════════ -->
-<div class="section" id="sec-kpis" data-sec-label="09 · KPIs por caminho">
-  <div class="sh"><span class="snum">09</span><h2 class="stitle">KPIs — comuns e específicos por caminho</h2><div class="sdiv"></div></div>
+<div class="section" id="sec-kpis" data-sec-label="11 · KPIs por caminho">
+  <div class="sh"><span class="snum">11</span><h2 class="stitle">KPIs — comuns e específicos por caminho</h2><div class="sdiv"></div></div>
+
+  <div class="note warn" style="margin-bottom:14px"><strong>⚠ Validar benchmarks:</strong> Confirmar se todas as métricas dos KPIs fazem sentido com a média do mercado norte-americano. O custo por inscrição projetado (≤ R$200) — confirmar se está em reais. Para Top 3 no Google, a landing page precisa estar muito otimizada.</div>
 
   <p class="slabel">KPIs comuns — Meta Ads e Google</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
-    <div style="background:#fff;border-radius:10px;padding:13px 15px;box-shadow:var(--sh)"><div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:5px">Meta Ads</div><table class="kpi"><tr><td>CPL (custo por lead)</td><td>≤ R$ 35</td></tr><tr><td>CPA (custo por inscrição)</td><td>≤ R$ 200</td></tr><tr><td>CTR médio esperado</td><td>1,5–3%</td></tr><tr><td>Match rate da base</td><td>≥ 60%</td></tr></table></div>
-    <div style="background:#fff;border-radius:10px;padding:13px 15px;box-shadow:var(--sh)"><div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:5px">Google Ads</div><table class="kpi"><tr><td>CPC médio (Search)</td><td>R$ 2–6</td></tr><tr><td>Taxa de conversão</td><td>3–6%</td></tr><tr><td>Impressão de marca</td><td>Top 3</td></tr><tr><td>CPV YouTube (pre-roll)</td><td>≤ R$ 0,20</td></tr></table></div>
+    <div style="background:#fff;border-radius:10px;padding:13px 15px;box-shadow:var(--sh)"><div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:5px">Meta Ads</div><table class="kpi"><tr><td>CPL (custo por lead)</td><td>≤ R$ 35</td></tr><tr><td>CPA (custo por inscrição)</td><td>≤ R$ 200 (confirmar moeda)</td></tr><tr><td>CTR médio esperado</td><td>1,5–3%</td></tr><tr><td>Match rate da base</td><td>≥ 60%</td></tr></table></div>
+    <div style="background:#fff;border-radius:10px;padding:13px 15px;box-shadow:var(--sh)"><div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:5px">Google Ads</div><table class="kpi"><tr><td>CPC médio (Search)</td><td>R$ 2–6</td></tr><tr><td>Taxa de conversão</td><td>3–6%</td></tr><tr><td>Impressão de marca</td><td>Top 3 (LP otimizada)</td></tr><tr><td>CPV YouTube (pre-roll)</td><td>≤ R$ 0,20</td></tr></table></div>
   </div>
 
   <div class="ab-cols">
@@ -704,13 +842,15 @@ textarea.m-input:focus{border-color:var(--blue);background:#fff}
     </div>
   </div>
 
+  <div class="note"><strong>Dashboard:</strong> Implementar relatório com ROAS em tempo real (dash ao vivo) para poder corrigir gargalos durante as campanhas com agilidade, sem depender de relatórios manuais pós-período.</div>
+
   <div class="c-list-inline" id="cli-sec-kpis"></div>
-  <button class="add-c-btn" onclick="openModal('sec-kpis','09 · KPIs por caminho')">+ Adicionar comentário</button>
+  <button class="add-c-btn" onclick="openModal('sec-kpis','11 · KPIs por caminho')">+ Adicionar comentário</button>
 </div>
 
 <div class="footer">
-  <div>Foco Marketing · Planejamento estratégico de tráfego pago</div>
-  <div>Human Global Aesthetics Program · Tour EUA Junho 2026 · Maio/2026</div>
+  <div>Foco Marketing · Planejamento estratégico de tráfego pago · v2 · 21 mai 2026</div>
+  <div>Human Global Aesthetics Program · Tour EUA Junho + Agosto 2026</div>
 </div>
 
 </div></div>
@@ -806,7 +946,7 @@ function openExport(){
   if(!comments.length){toast('Nenhum comentário para exportar.');return}
   const sorted=[...comments].sort((a,b)=>a.ts-b.ts);const grouped={};
   sorted.forEach(c=>{if(!grouped[c.secLbl])grouped[c.secLbl]=[];grouped[c.secLbl].push(c)});
-  let out=`COMENTÁRIOS — Human Global Aesthetics Program 2026\nExportado em: ${new Date().toLocaleString('pt-BR')}\nTotal: ${comments.length} comentário(s)\n`;
+  let out=`COMENTÁRIOS — Human Global Aesthetics Program 2026 v2\nExportado em: ${new Date().toLocaleString('pt-BR')}\nTotal: ${comments.length} comentário(s)\n`;
   ['ana','vini','felipe'].forEach(a=>{const n=comments.filter(c=>c.author===a).length;if(n)out+=`${AUTHORS[a].name}: ${n}\n`});
   out+='─'.repeat(54)+'\n\n';
   Object.entries(grouped).forEach(([sec,coms])=>{out+=`【 ${sec} 】\n\n`;coms.forEach((c,i)=>{out+=`${i+1}. [${c.name}] — ${c.date}\n   ${c.text}\n\n`});out+='─'.repeat(54)+'\n\n'});
